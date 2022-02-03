@@ -1,15 +1,36 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import './index.css';
-import App from './App';
-import * as serviceWorkerRegistration from './serviceWorkerRegistration';
-import reportWebVitals from './reportWebVitals';
+import React from "react";
+import ReactDOM from "react-dom";
+import "./index.css";
+import App from "./App";
+import * as serviceWorkerRegistration from "./serviceWorkerRegistration";
+import reportWebVitals from "./reportWebVitals";
+import { ThemeProvider } from "@mui/material/styles";
+import { createTheme } from "@material-ui/core";
+
+const theme = createTheme({
+  palette: {
+    primary: {
+      light: "#a24acd",
+      main: "#70159b",
+      dark: "#3e006c",
+      contrastText: "#ffffff",
+    },
+    secondary: {
+      light: "#833ca1",
+      main: "#530872",
+      dark: "#260046",
+      contrastText: "#ffffff",
+    },
+  },
+});
 
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    <ThemeProvider theme={theme}>
+      <App />
+    </ThemeProvider>
   </React.StrictMode>,
-  document.getElementById('root')
+  document.getElementById("root")
 );
 
 // If you want your app to work offline and load faster, you can change
