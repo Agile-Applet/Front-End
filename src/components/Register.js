@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import Button from '@mui/material/Button';
 import { Grid, Paper, Avatar, TextField } from '@mui/material';
 
-
 export default function Register() {
 
     const paperStyle={padding: '30px 20px', width: 300, margin: "20px auto"} 
