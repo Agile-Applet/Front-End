@@ -6,6 +6,9 @@ import * as serviceWorkerRegistration from "./serviceWorkerRegistration";
 import reportWebVitals from "./reportWebVitals";
 import { ThemeProvider } from "@mui/material/styles";
 import { createTheme } from "@material-ui/core";
+import { BrowserRouter, Switch, Route} from "react-router-dom";
+import Login from './components/Login';
+import Register from './components/Register';
 
 const theme = createTheme({
   palette: {
@@ -27,7 +30,13 @@ const theme = createTheme({
 ReactDOM.render(
   <React.StrictMode>
     <ThemeProvider theme={theme}>
-      <App />
+    <BrowserRouter>
+      <Switch>
+        <Route path="/login"><Login/></Route>
+        <Route path="/register"><Register/></Route>
+        <Route path="/"><App/></Route>
+      </Switch>
+    </BrowserRouter>
     </ThemeProvider>
   </React.StrictMode>,
   document.getElementById("root")
