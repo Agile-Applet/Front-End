@@ -5,14 +5,6 @@ import { Grid, Paper, Avatar, TextField } from '@mui/material';
 
 export default function Register() {
 
-    const [user, setUser] = useState({
-        username: '',
-        password: ''
-    });
-
-    const handleInputChange = (event) => {
-    }
-
     const paperStyle={padding: '30px 20px', width: 300, margin: "20px auto"} 
 
     return(
