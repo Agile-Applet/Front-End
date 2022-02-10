@@ -1,54 +1,86 @@
 import React, { useState } from 'react';
 import Button from '@mui/material/Button';
-import { Grid, Paper, Avatar, TextField } from '@mui/material';
+import { TextField } from '@mui/material';
+import Dialog from '@mui/material/Dialog';
+import DialogActions from '@mui/material/DialogActions';
+import DialogContent from '@mui/material/DialogContent';
+import DialogTitle from '@mui/material/DialogTitle'
 
 export default function Register() {
 
-    const paperStyle={padding: '30px 20px', width: 300, margin: "20px auto"} 
+    const [open, setOpen] = useState(false);
+    const [user, setUser] = useState({
+        username: '',
+        password: '',
+    });
+
+    const handleClickOpen = () => {
+      setOpen(true);
+    };
+  
+    const handleClose = () => {
+      setOpen(false);
+    };
+
+    const handleInputChange = (event) => {
+        setUser({ ...user, [event.target.name]: event.target.value });
+    }
 
     return(
-        <Grid>
-            <Paper elevation={20} style={paperStyle}>
-
-                <Grid align='center'>
-                    <Avatar style={{backgroundColor: '#1bbd7e'}} />
-                    <h2 style={{margin: 10}}>Rekisteröidy</h2>
-                </Grid>
-
-                <form>
-                    <TextField 
-                    variant='standard' 
-                    fullWidth 
-                    label='Käyttäjänimi' 
-                    />
-                    <TextField 
-                    variant='standard' 
-                    fullWidth 
-                    style={{marginTop: 5}}
-                    label='Sähköposti' 
-                    />
-                    <TextField 
-                    variant='standard' 
-                    fullWidth 
-                    style={{marginTop: 5}} 
-                    label='Salasana' 
-                    />
-                    <TextField 
-                    variant='standard' 
-                    fullWidth 
-                    style={{marginTop: 5}} 
-                    label='Vahvista Salasana' 
-                    />
-
-                    <Button 
-                    type='submit' 
-                    variant='contained' 
-                    color='primary' 
-                    style={{marginTop: 10}}>
-                    Rekisteröidy</Button>
-                </form>
-
-            </Paper>
-        </Grid>
+        <div>
+            <Button color="inherit" onClick={handleClickOpen}>
+                Rekisteröidy
+            </Button>
+            <Dialog open={open} onClose={handleClose}>
+                <DialogTitle>Luo uusi käyttäjä</DialogTitle>
+                <DialogContent>
+                <TextField
+                    autoFocus
+                    margin="dense"
+                    name="email"
+                    label="Sähköposti"
+                    type="text"
+                    fullWidth
+                    variant="standard"
+                    required
+                />
+                <TextField
+                    margin="dense"
+                    name="username"
+                    value={user.username}
+                    onChange={event => handleInputChange(event)}
+                    label="Käyttäjänimi"
+                    type="name"
+                    fullWidth
+                    variant="standard"
+                    required
+                />
+                <TextField
+                    margin="dense"
+                    name="password"
+                    value={user.password}
+                    onChange={event => handleInputChange(event)}
+                    label="Salasana"
+                    type="password"
+                    fullWidth
+                    variant="standard"
+                    required
+                />
+                <TextField
+                    margin="dense"
+                    name="checkPassword"
+                    label="Vahvista Salasana"
+                    type="password"
+                    fullWidth
+                    variant="standard"
+                    required
+                />
+                </DialogContent>
+                <DialogActions>
+                <Button variant="outlined" onClick={handleClose}>Sulje</Button>
+                <Button variant="contained" onClick={handleClose}>Rekisteröidy</Button>
+                </DialogActions>
+            </Dialog>
+        </div>
     )
 }

@@ -18,6 +18,8 @@ import CasinoIcon from "@mui/icons-material/Casino";
 import EuroIcon from "@mui/icons-material/Euro";
 import HistoryIcon from "@mui/icons-material/History";
 import UserIcon from "@mui/icons-material/Person";
+import Login from "./Login";
+import Register from "./Register";
 
 export default function Appbar() {
   const [state, setState] = React.useState(false);
@@ -99,6 +101,8 @@ export default function Appbar() {
           <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
             Casino App
           </Typography>
+          <Login />
+          <Register />
           <Button color="inherit">
             <ExitIcon href="/logout" />
           </Button>

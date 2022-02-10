@@ -1,43 +1,67 @@
 import React, { useState } from 'react';
 import Button from '@mui/material/Button';
-import { Grid, Paper, Avatar, TextField } from '@mui/material';
+import { TextField } from '@mui/material';
+import Dialog from '@mui/material/Dialog';
+import DialogActions from '@mui/material/DialogActions';
+import DialogContent from '@mui/material/DialogContent';
+import DialogTitle from '@mui/material/DialogTitle'
 
 export default function Login() {
 
-    const paperStyle={padding: '30px 20px', width: 300, margin: "20px auto"} 
+    const [open, setOpen] = useState(false);
+    const [user, setUser] = useState({
+        username: '',
+        password: '',
+    });
+
+    const handleClickOpen = () => {
+      setOpen(true);
+    };
+  
+    const handleClose = () => {
+      setOpen(false);
+    };
+
+    const handleInputChange = (event) => {
+        setUser({ ...user, [event.target.name]: event.target.value });
+    }
 
     return(
-        <Grid>
-            <Paper elevation={20} style={paperStyle}>
-
-                <Grid align='center'>
-                    <Avatar style={{backgroundColor: '#1bbd7e'}} />
-                    <h2 style={{margin: 10}}>Kirjaudu</h2>
-                </Grid>
-
-                <form>
-                    <TextField 
-                    variant='standard' 
-                    fullWidth 
-                    label='Käyttäjänimi' 
-                    />
-                    <TextField 
-                    variant='standard' 
-                    fullWidth 
-                    style={{marginTop: 5}} 
-                    label='Salasana' 
-                    />
-
-                    <Button 
-                    type='submit' 
-                    variant='contained' 
-                    color='primary' 
-                    style={{marginTop: 10}}>
-                    Kirjaudu
-                    </Button>
-                </form>
-                
-            </Paper>
-        </Grid>
+        <div>
+            <Button color="inherit" onClick={handleClickOpen}>
+                Kirjaudu
+            </Button>
+            <Dialog open={open} onClose={handleClose}>
+                <DialogTitle>Kirjaudu sisään</DialogTitle>
+                <DialogContent>
+                <TextField
+                    autoFocus
+                    margin="dense"
+                    name="username"
+                    value={user.username}
+                    onChange={event => handleInputChange(event)}
+                    label="Käyttäjänimi"
+                    type="text"
+                    fullWidth
+                    variant="standard"
+                />
+                <TextField
+                    margin="dense"
+                    name="password"
+                    value={user.password}
+                    onChange={event => handleInputChange(event)}
+                    label="Salasana"
+                    type="password"
+                    fullWidth
+                    variant="standard"
+                />
+                </DialogContent>
+                <DialogActions>
+                <Button variant="outlined" onClick={handleClose}>Sulje</Button>
+                <Button variant="contained" onClick={handleClose}>Kirjaudu</Button>
+                </DialogActions>
+            </Dialog>
+        </div>
+        
     )
 }
