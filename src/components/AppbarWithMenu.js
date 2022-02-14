@@ -1,4 +1,4 @@
-import * as React from "react";
+import React, { useRef } from "react";
 import AppBar from "@mui/material/AppBar";
 import Box from "@mui/material/Box";
 import Toolbar from "@mui/material/Toolbar";
@@ -18,11 +18,17 @@ import CasinoIcon from "@mui/icons-material/Casino";
 import EuroIcon from "@mui/icons-material/Euro";
 import HistoryIcon from "@mui/icons-material/History";
 import UserIcon from "@mui/icons-material/Person";
+import LoginIcon from "@mui/icons-material/Login";
+import AppRegistrationIcon from "@mui/icons-material/AppRegistration"
 import Login from "./Login";
 import Register from "./Register";
+import Deposit from "./Deposit";
 
 export default function Appbar() {
   const [state, setState] = React.useState(false);
+  const loginRef = useRef();
+  const registerRef = useRef();
+  const depositRef = useRef();
 
   const toggleDrawer = (open) => (event) => {
     if (
@@ -72,14 +78,33 @@ export default function Appbar() {
         ))}
       </List>
       <List>
-        {["Pelihistoria", "Talleta"].map((text, index) => (
-          <ListItem button key={text}>
+      <ListItem button key="Historia">
             <ListItemIcon style={{ color: "#ffffff" }}>
-              {index % 2 === 0 ? <HistoryIcon /> : <EuroIcon />}
+              <HistoryIcon />
             </ListItemIcon>
-            <ListItemText primary={text} style={{ color: "#ffffff" }} />
+            <ListItemText primary="Pelihistoria" style={{ color: "#ffffff" }}/>
           </ListItem>
-        ))}
+          <ListItem button key="Deposit">
+            <ListItemIcon style={{ color: "#ffffff" }}>
+              <EuroIcon />
+            </ListItemIcon>
+            <ListItemText primary="Talleta" style={{ color: "#ffffff" }} onClick={() => depositRef.current.showDeposit()}/>
+          </ListItem>
+      </List>
+      <Divider style={{ backgroundColor: "#ffffff" }} />
+      <List>
+          <ListItem button key="Login">
+            <ListItemIcon style={{ color: "#ffffff" }}>
+              <LoginIcon />
+            </ListItemIcon>
+            <ListItemText primary="Kirjaudu" style={{ color: "#ffffff" }} onClick={() => loginRef.current.showLogin()}/>
+          </ListItem>
+          <ListItem button key="Register">
+            <ListItemIcon style={{ color: "#ffffff" }}>
+              <AppRegistrationIcon />
+            </ListItemIcon>
+            <ListItemText primary="Rekisteröidy" style={{ color: "#ffffff" }} onClick={() => registerRef.current.showRegistration()}/>
+          </ListItem>
       </List>
     </Box>
   );
@@ -101,8 +126,9 @@ export default function Appbar() {
           <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
             Casino App
           </Typography>
-          <Login />
-          <Register />
+          <Login ref={loginRef}/>
+          <Register ref={registerRef}/>
+          <Deposit ref={depositRef}/>
           <Button color="inherit">
             <ExitIcon href="/logout" />
           </Button>

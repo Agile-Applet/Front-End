@@ -38,4 +38,19 @@ const registerUser = (data) => {
   });
 };
 
-module.exports = { login, registerUser };
+/* Deposit payload */
+
+const depositMoney = (data) => {
+  return new Promise((resolve, reject) => {
+    instance
+      .post("/deposit", data)
+      .then(function (response) {
+        return resolve(response.data);
+      })
+      .catch(function (error) {
+        return resolve(error);
+      });
+  });
+};
+
+module.exports = { login, registerUser, depositMoney };
