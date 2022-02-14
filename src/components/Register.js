@@ -6,8 +6,9 @@ import DialogActions from '@mui/material/DialogActions';
 import DialogContent from '@mui/material/DialogContent';
 import DialogTitle from '@mui/material/DialogTitle'
 import Api from '../services/Api'
+import { forwardRef, useRef, useImperativeHandle } from "react"
 
-export default function Register() {
+export default forwardRef((props,ref) => {
 
     const [open, setOpen] = useState(false);
     const [user, setUser] = useState({
@@ -24,6 +25,12 @@ export default function Register() {
     const handleClickOpen = () => {
       setOpen(true);
     };
+
+    useImperativeHandle(ref, () => ({
+        showRegistration() {
+          handleClickOpen()
+        },
+    }))
   
     const handleClose = () => {
       setOpen(false);
@@ -35,9 +42,6 @@ export default function Register() {
 
     return(
         <div>
-            <Button color="inherit" onClick={handleClickOpen}>
-                Rekisteröidy
-            </Button>
             <Dialog open={open} onClose={handleClose}>
                 <DialogTitle>Luo uusi käyttäjä</DialogTitle>
                 <DialogContent>
@@ -90,4 +94,4 @@ export default function Register() {
             </Dialog>
         </div>
     )
-}
+})
