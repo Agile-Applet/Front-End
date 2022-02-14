@@ -5,6 +5,7 @@ import Dialog from '@mui/material/Dialog';
 import DialogActions from '@mui/material/DialogActions';
 import DialogContent from '@mui/material/DialogContent';
 import DialogTitle from '@mui/material/DialogTitle'
+import Api from '../services/Api'
 
 export default function Login() {
 
@@ -13,6 +14,12 @@ export default function Login() {
         username: '',
         password: '',
     });
+
+    const handleLogin =  async () => {
+        console.log(user);
+        const response = await Api.login(user);
+        console.log(response);
+    }
 
     const handleClickOpen = () => {
       setOpen(true);
@@ -58,7 +65,7 @@ export default function Login() {
                 </DialogContent>
                 <DialogActions>
                 <Button variant="outlined" onClick={handleClose}>Sulje</Button>
-                <Button variant="contained" onClick={handleClose}>Kirjaudu</Button>
+                <Button variant="contained" onClick={handleLogin}>Kirjaudu</Button>
                 </DialogActions>
             </Dialog>
         </div>
