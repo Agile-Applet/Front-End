@@ -1,21 +1,22 @@
 /* Uusi axios-instanssi */
 const axios = require("axios");
 const instance = axios.create({
-  baseURL: "https://httpbin.org/",
+  baseURL: process.env.API_BASE_STRING || 'http://localhost:3001',
   timeout: 1000,
   headers: { "X-Custom-Header": "foobar" },
+  validateStatus: () => true,
 });
 
 /* Metodit */
 
 /* Posts login payload to /api/login */
 
-const login = (data) => {
+const postData = (path, data) => {
   return new Promise((resolve, reject) => {
     instance
-      .post("/post", data)
+      .post(path, data)
       .then(function (response) {
-        return resolve(response.data);
+        return resolve(response);
       })
       .catch(function (error) {
         return resolve(error);
@@ -23,34 +24,4 @@ const login = (data) => {
   });
 };
 
-/* Posts register payload to /api/register */
-
-const registerUser = (data) => {
-  return new Promise((resolve, reject) => {
-    instance
-      .post("/login", data)
-      .then(function (response) {
-        return resolve(response.data);
-      })
-      .catch(function (error) {
-        return resolve(error);
-      });
-  });
-};
-
-/* Deposit payload */
-
-const depositMoney = (data) => {
-  return new Promise((resolve, reject) => {
-    instance
-      .post("/deposit", data)
-      .then(function (response) {
-        return resolve(response.data);
-      })
-      .catch(function (error) {
-        return resolve(error);
-      });
-  });
-};
-
-module.exports = { login, registerUser, depositMoney };
+module.exports = { postData };
