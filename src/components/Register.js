@@ -5,6 +5,7 @@ import Dialog from '@mui/material/Dialog';
 import DialogActions from '@mui/material/DialogActions';
 import DialogContent from '@mui/material/DialogContent';
 import DialogTitle from '@mui/material/DialogTitle'
+import Api from '../services/Api'
 
 export default function Register() {
 
@@ -13,6 +14,12 @@ export default function Register() {
         username: '',
         password: '',
     });
+
+    const handleRegister = async () => {
+        console.log(user);
+        const response = await Api.registerUser(user);
+        console.log(response);
+    }
 
     const handleClickOpen = () => {
       setOpen(true);
@@ -78,7 +85,7 @@ export default function Register() {
                 </DialogContent>
                 <DialogActions>
                 <Button variant="outlined" onClick={handleClose}>Sulje</Button>
-                <Button variant="contained" onClick={handleClose}>Rekisteröidy</Button>
+                <Button variant="contained" onClick={handleRegister}>Rekisteröidy</Button>
                 </DialogActions>
             </Dialog>
         </div>
