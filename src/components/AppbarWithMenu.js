@@ -84,26 +84,26 @@ export default function Appbar() {
             </ListItemIcon>
             <ListItemText primary="Pelihistoria" style={{ color: "#ffffff" }}/>
           </ListItem>
-          <ListItem button key="Deposit">
+          <ListItem button key="Deposit" onClick={() => depositRef.current.showDeposit()}>
             <ListItemIcon style={{ color: "#ffffff" }}>
               <EuroIcon />
             </ListItemIcon>
-            <ListItemText primary="Talleta" style={{ color: "#ffffff" }} onClick={() => depositRef.current.showDeposit()}/>
+            <ListItemText primary="Talleta" style={{ color: "#ffffff" }}/>
           </ListItem>
       </List>
       <Divider style={{ backgroundColor: "#ffffff" }} />
       <List>
-          <ListItem button key="Login">
+          <ListItem button key="Login" onClick={() => loginRef.current.showLogin()}>
             <ListItemIcon style={{ color: "#ffffff" }}>
               <LoginIcon />
             </ListItemIcon>
-            <ListItemText primary="Kirjaudu" style={{ color: "#ffffff" }} onClick={() => loginRef.current.showLogin()}/>
+            <ListItemText primary="Kirjaudu" style={{ color: "#ffffff" }}/>
           </ListItem>
-          <ListItem button key="Register">
+          <ListItem button key="Register" onClick={() => registerRef.current.showRegistration()}>
             <ListItemIcon style={{ color: "#ffffff" }}>
               <AppRegistrationIcon />
             </ListItemIcon>
-            <ListItemText primary="Rekisteröidy" style={{ color: "#ffffff" }} onClick={() => registerRef.current.showRegistration()}/>
+            <ListItemText primary="Rekisteröidy" style={{ color: "#ffffff" }}/>
           </ListItem>
       </List>
     </Box>
