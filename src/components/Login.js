@@ -6,8 +6,9 @@ import DialogActions from '@mui/material/DialogActions';
 import DialogContent from '@mui/material/DialogContent';
 import DialogTitle from '@mui/material/DialogTitle'
 import Api from '../services/Api'
+import { forwardRef, useRef, useImperativeHandle } from "react"
 
-export default function Login() {
+export default forwardRef((props,ref) => {
 
     const [open, setOpen] = useState(false);
     const [user, setUser] = useState({
@@ -24,6 +25,12 @@ export default function Login() {
     const handleClickOpen = () => {
       setOpen(true);
     };
+
+    useImperativeHandle(ref, () => ({
+        showLogin() {
+          handleClickOpen()
+        },
+    }))
   
     const handleClose = () => {
       setOpen(false);
@@ -35,9 +42,6 @@ export default function Login() {
 
     return(
         <div>
-            <Button color="inherit" onClick={handleClickOpen}>
-                Kirjaudu
-            </Button>
             <Dialog open={open} onClose={handleClose}>
                 <DialogTitle>Kirjaudu sisään</DialogTitle>
                 <DialogContent>
@@ -71,4 +75,4 @@ export default function Login() {
         </div>
         
     )
-}
+})
