@@ -1,7 +1,11 @@
 /* Uusi axios-instanssi */
 const axios = require("axios");
 const instance = axios.create({
+<<<<<<< HEAD
   baseURL: process.env.API_BASE_STRING || 'http://localhost:3001',
+=======
+  baseURL: process.env.API_BASE_STRING || 'https://json.awsproject.link/',
+>>>>>>> origin/holdem-socket.io
   timeout: 1000,
   headers: { "X-Custom-Header": "foobar" },
   validateStatus: () => true,

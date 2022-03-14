@@ -13,6 +13,8 @@ import store from "./store/index";
 import Login from './components/Login';
 import Register from './components/Register';
 
+import Holdem from './holdem/index';
+
 const theme = createTheme({
   palette: {
     primary: {
@@ -37,6 +39,7 @@ ReactDOM.render(
     <Router>
       <Routes>
         <Route path="/login" element={<Login/>}/>
+        <Route path="/holdem" element={<Holdem/>}></Route>
         <Route path="/register" element={<Register/>}/>
         <Route path="/" element={<App/>}/>
       </Routes>
