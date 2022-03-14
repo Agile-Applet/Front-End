@@ -28,11 +28,11 @@ function App() {
               <Grid item md={6} xs={12}>
             <Game
               size={"600px"}
-              name={"Jaska"}
-              description={"Astu jaskan maailmaan!"}
-              url={"/play/iso"}
+              name={"Texas Hold'em"}
+              description={"Astu mukavan pokerin maailmaan!"}
+              url={"/holdem"}
               image={
-                "https://i8.amplience.net/i/veikkaus/kulta-jaska2_tile-image-with-logo?w=480&qlt=80&fmt=auto"
+                "https://i0.wp.com/golflakeridge.com/wp-content/uploads/2017/09/Texas_Hold_em_Logo_000.png?resize=845%2C321&ssl=1"
               }
             />
             </Grid>
@@ -41,7 +41,7 @@ function App() {
               size={"600px"}
               name={"Emma"}
               description={"Astu emman maailmaan!"}
-              url={"/play/iso"}
+              url={"#"}
               image={
                 "https://i8.amplience.net/i/veikkaus/emma_tile-image-with-logo?w=480&qlt=80&fmt=auto"
               }
