@@ -22,10 +22,25 @@ img.poker-table {
 }
 
 div.controls {
+    z-index: 1;
     position: relative;
-    width: 250px;
-    top: -8vh;
-    right: 1vw;
+    top: -2.5vw;
+    width: 700px;
+    height: 55px;
+    background-color: rgba(0,0,0,0.5);
+    border: 2px solid rgba(0,0,0,1.0);
+    border-radius: 9px;
+    justify-content: center;
+    margin: auto;
+}
+
+button.controls {
+    height: 55px;
+    margin-right: 10px;
+}
+
+input.controls {
+    background-color: rgba(255,255,255,0.5);
 }
 
 div.table-pot {
@@ -135,8 +150,11 @@ img.avatar-money {
 /* Shite stars */
 
 div.players {
+    height: 19.35rem;
+    z-index: 2;
     position: relative;
-    top: -40rem;
+    top: -46rem;
+    margin: auto;
 }
 
 div.player-1 {

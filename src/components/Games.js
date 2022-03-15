@@ -28,7 +28,7 @@ export default function Games() {
     {
       cardSize: "normal",
       name: "Pikapokeri",
-      description: "Nauti nopeatempoisen pokeripelin huumasta...",
+      description: "Nopeatempoinen pokeripeli...",
       url: "#",
       image:
         "https://i8.amplience.net/i/veikkaus/pikapokeri_tile-image-with-logo?w=480&qlt=80&fmt=auto",

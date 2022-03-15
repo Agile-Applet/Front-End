@@ -1,7 +1,7 @@
 /* Uusi axios-instanssi */
 const axios = require("axios");
 const instance = axios.create({
-  baseURL: process.env.API_BASE_STRING || 'https://json.awsproject.link/',
+  baseURL: process.env.API_BASE_STRING || 'https://container-service-1.1bm12m42tdcru.eu-north-1.cs.amazonlightsail.com',
   timeout: 1000,
   headers: { "X-Custom-Header": "foobar" },
   validateStatus: () => true,
