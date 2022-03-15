@@ -1,7 +1,7 @@
 import React from "react";
 import io from "socket.io-client";
 
-const socket = io(process.env.SOCKET_BASE_STRING, {
+const socket = io('https://container-service-1.1bm12m42tdcru.eu-north-1.cs.amazonlightsail.com', {
     autoConnect: false,
 })
 
