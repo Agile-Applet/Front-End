@@ -3,6 +3,7 @@ import io from "socket.io-client";
 
 const socket = io('https://container-service-1.1bm12m42tdcru.eu-north-1.cs.amazonlightsail.com', {
     autoConnect: false,
+    transports: ['websocket', 'polling', 'flashsocket']
 })
 
 const socketContext = React.createContext(socket);
