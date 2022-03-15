@@ -29,13 +29,7 @@ import Login from "./Login";
 import Register from "./Register";
 import Deposit from "./Deposit";
 
-import {
-  RecoilRoot,
-  atom,
-  selector,
-  useRecoilState,
-  useRecoilValue,
-} from 'recoil';
+import { useRecoilState } from 'recoil';
 
 import {userState} from '../services/User';
 
@@ -67,7 +61,7 @@ export default function Appbar() {
       localStorage.setItem("user", JSON.stringify(usr));
     }
     console.log(user);
-  }, []);
+  }, [setUser]);
 
   const handleLogout = async () => {
     const response = await Api.postData("/logout", user);
