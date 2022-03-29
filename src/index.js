@@ -33,6 +33,7 @@ const theme = createTheme({
 
 ReactDOM.render(
   <React.StrictMode>
+    <Provider store={store}>
     <ThemeProvider theme={theme}>
     <Router>
       <RecoilRoot>
@@ -45,6 +46,7 @@ ReactDOM.render(
       </RecoilRoot>
     </Router>
     </ThemeProvider>
+    </Provider>
   </React.StrictMode>,
   document.getElementById("root")
 );
