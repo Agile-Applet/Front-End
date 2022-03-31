@@ -1,0 +1,284 @@
+div.main {
+    background-image: url("../../public/assets/pokerbg.jpg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    width: 100%;
+    height: 100%;
+}
+
+div.poker-table {
+    width: 50vw;
+    max-height: 100vh;
+    margin: 0px auto;
+    justify-content: center;
+    text-align: center;
+    padding-top: 10%;
+}
+
+img.poker-table {
+    max-width: 1200px;
+    max-height: 600px;
+}
+
+div.controls {
+    z-index: 1;
+    position: relative;
+    top: -2.5vw;
+    width: 700px;
+    height: 55px;
+    background-color: rgba(0,0,0,0.5);
+    border: 2px solid rgba(0,0,0,1.0);
+    border-radius: 9px;
+    justify-content: center;
+    margin: auto;
+}
+
+button.controls {
+    height: 55px;
+    margin-right: 10px;
+}
+
+input.controls {
+    background-color: rgba(255,255,255,0.5);
+}
+
+div.table-pot {
+    position: relative;
+    top: -18vw;
+    left: 0vw;
+}
+
+p.table-pot {
+    display: inline;
+    color: rgba(255,255,255,1.0);
+    background-color: rgba(0,0,0,0.5);
+    border: 0.5px solid rgba(0,0,0,0.5);
+    border-radius: 9px;
+    padding: 3px 6x;
+    font-weight: bold;
+    font-size: 24px;
+}
+
+div.table-cards {
+    width: 500px;
+    height: 100px;
+    position: relative;
+    top: -17vw;
+    left: 0vw;
+    margin: auto;
+}
+
+div.dealer {
+    width: 200px;
+    height: 100px;
+    position: relative;
+    top: -50rem;
+    left: 0vw;
+    margin: auto;
+}
+
+div.player-cards-left {
+    width: 200;
+    position: relative;
+    top: -150px;
+    left: -185px;
+}
+
+div.player-cards-right {
+    width: 200;
+    position: relative;
+    top: -150px;
+    left: 185px;
+}
+
+div.avatar-normal {
+    width: 160;
+    text-align: 'center';
+    background-color: rgba(255,255,255,0.25);
+}
+
+img.avatar-normal {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 6px 12px;
+    width: 120;
+    height: 120;
+}
+
+p.avatar-normal {
+    display: inline;
+    position: relative;
+    top: -20px;
+    font-size: 20px;
+    color: rgb(255,255,255);
+    background-color: rgba(0,0,0,0.5);
+    border: 2px solid rgba(0,0,0,0.25);
+    border-radius: 10%;
+}
+
+button.avatar-normal {
+    display: inline;
+    width: 200px;
+}
+
+div.avatar-turn {
+    width: 160;
+    text-align: 'center';
+    background-color: rgba(62, 133, 65, 0.75);
+    border: 2px solid rgba(255,255,255,0.25);
+    border-radius: 15%;
+}
+
+div.avatar-money {
+    justify-content: center;
+}
+
+p.avatar-money {
+    display: inline;
+    font-size: 18px;
+    color: rgb(255,255,255);
+}
+
+img.avatar-money {
+    display: inline;
+    width: 24px;
+    height: 24px;
+}
+
+/* Shite stars */
+
+div.players {
+    height: 19.35rem;
+    z-index: 2;
+    position: relative;
+    top: -46rem;
+    margin: auto;
+}
+
+div.player-1 {
+    width: 200px;
+    height: 100px;
+    position: relative;
+    top: 25.2rem;
+    left: 15rem;
+    margin: auto;
+}
+
+div.player-2 {
+    width: 200px;
+    height: 100px;
+    position: relative;
+    top: 19rem;
+    right: 15rem;
+    margin: auto;
+}
+
+div.player-3 {
+    width: 200px;
+    height: 100px;
+    position: relative;
+    bottom: 8rem;
+    left: 36rem;
+    margin: auto;
+}
+
+div.player-4 {
+    width: 200px;
+    height: 100px;
+    position: relative;
+    bottom: 14rem;
+    right: 36rem;
+    margin: auto;
+}
+
+div.player-5 {
+    width: 200px;
+    height: 100px;
+    position: relative;
+    bottom: 44rem;
+    right: 25rem;
+    margin: auto;
+}
+
+div.player-6 {
+    width: 200px;
+    height: 100px;
+    position: relative;
+    bottom: 50rem;
+    left: 25rem;
+    margin: auto;
+}
+
+img.playcard {
+    width: 80px;
+}
+
+@media screen and ( max-width: 1700px) {
+    div.dealer {
+        top: -45rem;
+    }
+    div.player-1 {
+        width: 200px;
+        height: 100px;
+        position: relative;
+        top: 25.2rem;
+        left: 15rem;
+        margin: auto;
+    }
+    
+    div.player-2 {
+        width: 200px;
+        height: 100px;
+        position: relative;
+        top: 19rem;
+        right: 15rem;
+        margin: auto;
+    }
+    
+    div.player-3 {
+        width: 200px;
+        height: 100px;
+        position: relative;
+        bottom: 4rem;
+        left: 31rem;
+        margin: auto;
+    }
+    
+    div.player-4 {
+        width: 200px;
+        height: 100px;
+        position: relative;
+        bottom: 10rem;
+        right: 31rem;
+        margin: auto;
+    }
+    
+    div.player-5 {
+        width: 200px;
+        height: 100px;
+        position: relative;
+        bottom: 36rem;
+        right: 25rem;
+        margin: auto;
+    }
+    
+    div.player-6 {
+        width: 200px;
+        height: 100px;
+        position: relative;
+        bottom: 42.5rem;
+        left: 25rem;
+        margin: auto;
+    }
+}
+
+@media screen and ( max-width: 1199px ) {
+    div.main {
+        display: none;
+    }
+    img.playcard {
+        width: 60px;
+    }
+}

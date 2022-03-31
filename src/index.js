@@ -1,17 +1,18 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import "./index.css";
-import App from "./App";
+import App from './App';
 import * as serviceWorkerRegistration from "./serviceWorkerRegistration";
 import reportWebVitals from "./reportWebVitals";
 import { ThemeProvider } from "@mui/material/styles";
 import { createTheme } from "@material-ui/core";
 import { BrowserRouter as Router, Routes, Route} from "react-router-dom";
-import { Provider } from 'react-redux';
-import store from "./store/index";
 
 import Login from './components/Login';
 import Register from './components/Register';
+
+import Holdem from './holdem/index';
+import { RecoilRoot } from 'recoil';
 
 const theme = createTheme({
   palette: {
@@ -32,17 +33,18 @@ const theme = createTheme({
 
 ReactDOM.render(
   <React.StrictMode>
-    <Provider store={store}>
     <ThemeProvider theme={theme}>
     <Router>
-      <Routes>
-        <Route path="/login" element={<Login/>}/>
-        <Route path="/register" element={<Register/>}/>
-        <Route path="/" element={<App/>}/>
-      </Routes>
+      <RecoilRoot>
+        <Routes>
+          <Route path="/login" element={<Login/>}/>
+          <Route path="/holdem" element={<Holdem/>}></Route>
+          <Route path="/register" element={<Register/>}/>
+          <Route path="/" element={<App/>}/>
+        </Routes>
+      </RecoilRoot>
     </Router>
     </ThemeProvider>
-    </Provider>
   </React.StrictMode>,
   document.getElementById("root")
 );

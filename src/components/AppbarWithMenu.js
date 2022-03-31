@@ -29,6 +29,10 @@ import Login from "./Login";
 import Register from "./Register";
 import Deposit from "./Deposit";
 
+import { useRecoilState } from 'recoil';
+
+import {userState} from '../services/User';
+
 const UserContext = React.createContext({});
 
 export default function Appbar() {
@@ -36,20 +40,12 @@ export default function Appbar() {
   const loginRef = useRef();
   const registerRef = useRef();
   const depositRef = useRef();
-  const [user, setUser] = useState({
-    username: "",
-    saldo: 0.0,
-    isAdmin: false,
-    isLogged: false,
-    cookie: null,
-    sessionID: null,
-  });
+  const [user, setUser] = useRecoilState(userState);
   const [showLogout, setLogout] = useState(false);
 
   useEffect(() => {
     const user = localStorage.getItem("user");
     if (user) {
-      console.log("SET DATA");
       console.log(user);
       setUser(JSON.parse(user));
     } else {
@@ -64,7 +60,8 @@ export default function Appbar() {
       setUser(usr);
       localStorage.setItem("user", JSON.stringify(usr));
     }
-  }, []);
+    console.log(user);
+  }, [setUser]);
 
   const handleLogout = async () => {
     const response = await Api.postData("/logout", user);
