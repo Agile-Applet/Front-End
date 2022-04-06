@@ -5,6 +5,7 @@ import Games from "./components/Games";
 import Grid from "@mui/material/Grid";
 import Box from "@mui/material/Box";
 import Game from "./components/Game";
+import { RecoilRoot } from 'recoil';
 
 function App() {
   return (
@@ -15,7 +16,9 @@ function App() {
         alignItems: "center",
       }}
     >
-      <Appbar />
+      <RecoilRoot>
+        <Appbar />
+      </RecoilRoot>
       <Box sx={{ flexGrow: 1, paddingLeft: '10vh', paddingRight: '10vh' }}>
         <Grid container direction="row" spacing={16}>
           <Grid item lg={6} md={8} xs={12}>

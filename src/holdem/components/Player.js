@@ -10,9 +10,6 @@ export default function Player(props) {
         props.controlBuyin({ table: 1, seatId: seatId, username: props.user.username, uid: props.user.uid });
     }
 
-    // For testing
-    const cards = ['2s', '3s', '4s', '5s', '6s'];
-
     if (props.player.seatStatus === 1) {
         return (
             <div key={props.player.playerId} className={`player-${props.player.playerId}`}>
