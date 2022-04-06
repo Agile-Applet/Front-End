@@ -1,16 +1,16 @@
-/* Uusi axios-instanssi */
 const axios = require("axios");
+
+const URL = process.env.API_BASE_STRING || 'http://localhost:3001';
+
+/* New axios instance */
 const instance = axios.create({
-  baseURL: 'https://container-service-1.1bm12m42tdcru.eu-north-1.cs.amazonlightsail.com',
+  baseURL: URL,
   timeout: 5000,
   headers: { "X-Custom-Header": "foobar" },
   validateStatus: () => true,
 });
 
-/* Metodit */
-
-/* Posts login payload to /api/login */
-
+/* Posts login payload to /login */
 const postData = (path, data) => {
   return new Promise((resolve, reject) => {
     instance
@@ -19,7 +19,7 @@ const postData = (path, data) => {
         return resolve(response);
       })
       .catch(function (error) {
-        return resolve(error);
+        return reject(error);
       });
   });
 };

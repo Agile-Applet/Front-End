@@ -31,7 +31,7 @@ export default forwardRef((props, ref) => {
 
   const handleBuy = async () => {
     showAlert("success", "Liitytään pöytään.", 1000, true);
-    boughtIn({table: tableId, seat: seatId, amount: amount})
+    boughtIn({ table: tableId, seat: seatId, amount: amount })
   };
 
   const handleClickOpen = () => {

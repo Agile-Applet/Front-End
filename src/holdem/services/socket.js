@@ -1,7 +1,9 @@
 import React from "react";
 import io from "socket.io-client";
 
-const socket = io('https://container-service-1.1bm12m42tdcru.eu-north-1.cs.amazonlightsail.com', {
+const URL = process.env.SOCKET_BASE_STRING || 'http://localhost:3001/table1';
+
+const socket = io(URL, {
     autoConnect: false,
     transports: ['websocket', 'polling', 'flashsocket']
 })
@@ -28,4 +30,4 @@ socket.on("take-seat", (data) => {
     console.log("[Socket] Take-Seat: " + data);
 })
 
-export {socket, socketContext};
+export { socket, socketContext };

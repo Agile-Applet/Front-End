@@ -147,7 +147,18 @@ img.avatar-money {
     height: 24px;
 }
 
-/* Shite stars */
+.textfield {
+    color: white !important;
+    width: '200px';
+    height: 'auto'; 
+    text-align: 'center';
+    background-color:rgba(255,255,255,0.75)
+}
+
+.textfield_label {
+    color: white !important;
+    background-color:rgba(112,21,155,255);
+}
 
 div.players {
     height: 19.35rem;

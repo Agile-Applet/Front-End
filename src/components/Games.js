@@ -85,29 +85,29 @@ export default function Games() {
   return (
     <Grid container direction="row" spacing={3}>
       {gameData.map((game, index) => (
-          <Grid item md={4} xs={12} key={index}>
-            <Card>
-                <CardMedia
-                component="img"
-                alt="green iguana"
-                height="140"
-                image={game.image}
-                />
-                <CardContent>
-                <Typography gutterBottom variant="h5" component="div">
-                    {game.name}
-                </Typography>
-                <Typography variant="body2" color="text.secondary">
-                    {game.description}
-                </Typography>
-                </CardContent>
-                <CardActions>
-                <Button size="small" variant="contained" href={game.url}>
-                    Pelaa
-                </Button>
-                </CardActions>
-            </Card>
-          </Grid>
+        <Grid item md={4} xs={12} key={index}>
+          <Card>
+            <CardMedia
+              component="img"
+              alt="green iguana"
+              height="140"
+              image={game.image}
+            />
+            <CardContent>
+              <Typography gutterBottom variant="h5" component="div">
+                {game.name}
+              </Typography>
+              <Typography variant="body2" color="text.secondary">
+                {game.description}
+              </Typography>
+            </CardContent>
+            <CardActions>
+              <Button size="small" variant="contained" href={game.url}>
+                Pelaa
+              </Button>
+            </CardActions>
+          </Card>
+        </Grid>
       ))}
     </Grid>
   );

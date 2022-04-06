@@ -31,7 +31,7 @@ import Deposit from "./Deposit";
 
 import { useRecoilState } from 'recoil';
 
-import {userState} from '../services/User';
+import { userState } from '../services/User';
 
 const UserContext = React.createContext({});
 
@@ -85,7 +85,7 @@ export default function Appbar() {
   };
 
   const handleDeposit = (response) => {
-    setUser({...user, saldo: response.saldo})
+    setUser({ ...user, saldo: response.saldo })
     localStorage.setItem("user", JSON.stringify(user));
   }
 
