@@ -1,7 +1,7 @@
 import React from "react";
 import io from "socket.io-client";
 
-const URL = process.env.SOCKET_BASE_STRING || 'http://localhost:3001/table1';
+const URL = process.env.SOCKET_BASE_STRING || 'http://localhost:3001/table1' || 'http://localhost:3001';
 
 const socket = io(URL, {
     autoConnect: false,

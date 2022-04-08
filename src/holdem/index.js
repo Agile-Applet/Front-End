@@ -18,9 +18,11 @@ export default function Holdem(props) {
     /* General table data */
     const [tableData, setTableData] = useState({ pot: 0.00, cards: [{ card: "Ts" }, { card: "Js" }, { card: "Qs" }, { card: "Ks" }, { card: "As" }] });
 
+    const [dealerVisible, setDealerVisible] = useState(false);
+
     /* Table player data, per seat */
     const [playerData, setPlayerData] = useState([
-        { playerId: 1, playerName: "Sande", seatStatus: 0, money: 100, lastBet: 0, hand: [{ card: "As" }, { card: "Ks" }], showHand: false, handPosition: 'player-cards-right', avatar: '' },
+        { playerId: 1, playerName: "Pelaaja 1", seatStatus: 0, money: 0, lastBet: 0, hand: [{ card: "As" }, { card: "Ks" }], showHand: false, handPosition: 'player-cards-right', avatar: '' },
         { playerId: 2, playerName: "Pelaaja 2", seatStatus: 0, money: 0, lastBet: 0, hand: [{ card: "As" }, { card: "Ks" }], showHand: true, handPosition: 'player-cards-left', avatar: '' },
         { playerId: 3, playerName: "Pelaaja 3", seatStatus: 0, money: 0, lastBet: 0, hand: [{ card: "As" }, { card: "Ks" }], showHand: true, handPosition: 'player-cards-right', avatar: '' },
         { playerId: 4, playerName: "Pelaaja 4", seatStatus: 0, money: 0, lastBet: 0, hand: [{ card: "As" }, { card: "Ks" }], showHand: true, handPosition: 'player-cards-left', avatar: '' },
@@ -99,7 +101,7 @@ export default function Holdem(props) {
             }
         })
 
-        /* Socket Events not used much yet */
+        /* Socket Events */
 
         socket.on("disconnect", () => {
             console.log("[Socket] Client disconnected. ID: " + socket.id);
@@ -115,16 +117,21 @@ export default function Holdem(props) {
             console.log("[Socket-Event] User Notification: " + JSON.stringify(data));
         })
 
-        /* General updates related to players and seats (connect,disconnect, taking seat..) */
+        /* General updates related to updating table */
         socket.on("updateTable", (data) => {
-            console.log("Update Table.");
-            console.log(data);
+            console.log("Update Table.");;
             setPlayerData(data);
         })
 
-        /* Update cards and table stuff */
+        socket.on("startGame", (data) => {
+            console.log("Start game.");
+            setDealerVisible(true);
+        })
+
         socket.on("updateTableCards", (data) => {
-            setTableData(data);
+            console.log("Uusi data:");
+            console.log(data);
+            setTableData({ pot: 0.00, cards: [{ card: data[0].cards[0].card }] });
         })
 
         socket.on("userError", (data) => {
@@ -145,11 +152,12 @@ export default function Holdem(props) {
                 <div className="table-pot">
                     <p className="table-pot">Pot: € {tableData.pot}</p>
                 </div>
-                <div className="table-cards">
-                    {tableData.cards.map(card => (
-                        <Playcard key={card.card} alt="card" card={card.card} className="playcard" />
-                    ))}
-                </div>
+                {dealerVisible ?
+                    <div className="table-cards">
+                        {tableData.cards.map(card => (
+                            <Playcard key={card.card} alt="card" card={card.card} className="playcard" />
+                        ))}
+                    </div> : null}
                 <div className="dealer">
                     <div className="avatar-normal">
                         <Avatar alt="avatar" src={'https://cdna.artstation.com/p/assets/images/images/039/426/688/large/marina-oman-woman2.jpg?1625858913'} sx={{ display: 'block', marginLeft: 'auto', marginRight: 'auto', padding: '6px 12px', width: 120, height: 120 }}></Avatar>
@@ -160,8 +168,8 @@ export default function Holdem(props) {
                     <Button className="controls" variant="contained" onClick={foldHand}>Fold</Button>
                     <Button className="controls" variant="contained" onClick={checkHand}>Check</Button>
                     <Button className="controls" variant="contained" onClick={betHand}>Bet</Button>
-                    <TextField InputLabelProps={{ className: "textfield_label" }} className="textfield" id="outlined-basic" label="Bet Amount" 
-                    variant="outlined" value={Number(userData.bet)} onChange={(e) => setUserData({ ...user, bet: Number(e.target.value) })} />
+                    <TextField InputLabelProps={{ className: "textfield_label" }} className="textfield" id="outlined-basic" label="Bet Amount"
+                        variant="outlined" value={Number(userData.bet)} onChange={(e) => setUserData({ ...user, bet: Number(e.target.value) })} />
                     <Button className="controls" style={{ backgroundColor: `rgb(255,0,0)`, marginLeft: '40px' }} variant="contained" onClick={leaveTable}>Leave table</Button>
                 </div>
                 <div className="players">

@@ -16,10 +16,10 @@ const postData = (path, data) => {
     instance
       .post(path, data)
       .then(function (response) {
-        return resolve(response);
+        resolve(response);
       })
       .catch(function (error) {
-        return reject(error);
+        reject(error);
       });
   });
 };
