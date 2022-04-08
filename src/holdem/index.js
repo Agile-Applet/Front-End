@@ -20,7 +20,9 @@ export default function Holdem(props) {
 
     const [dealerVisible, setDealerVisible] = useState(false);
 
-    /* Table player data, per seat */
+    /* Table player data, per seat 
+        This data updates regularly as the server sends updates
+    */
     const [playerData, setPlayerData] = useState([
         { playerId: 1, playerName: "Pelaaja 1", seatStatus: 0, money: 0, lastBet: 0, hand: [{ card: "As" }, { card: "Ks" }], showHand: false, handPosition: 'player-cards-right', avatar: '' },
         { playerId: 2, playerName: "Pelaaja 2", seatStatus: 0, money: 0, lastBet: 0, hand: [{ card: "As" }, { card: "Ks" }], showHand: true, handPosition: 'player-cards-left', avatar: '' },
@@ -32,16 +34,10 @@ export default function Holdem(props) {
 
     /* Current Player Data */
     const [userData, setUserData] = useState({
-        playerId: 1,
+        seat: 1,
         socketId: null,
         connectionStatus: false,
-        roomName: '',
-        seat: 1,
-        username: '',
-        avatar: '',
-        hand: [],
-        uid: 0,
-        status: 0,
+        roomName: 'default',
         bet: 0
     });
 
@@ -49,15 +45,15 @@ export default function Holdem(props) {
     const [alertMessage, setAlertMessage] = useState('');
     const [showAlert, setAlert] = useState(false);
 
+    /* Handle Buy In to the table */
+
     const handleBuyin = (response) => {
-        console.log("Received callback:");
-        console.log(response);
-        console.log("[Socket] Emitting JOIN SEAT");
         socket.emit("join_seat", { table: 1, seatId: response.seat, amount: response.amount, username: user.username });
     }
 
+    /* Open table buy in prompt */
+
     const openBuyin = (request) => {
-        console.log(request);
         buyRef.current.showBuyin(request);
     }
 
@@ -81,65 +77,60 @@ export default function Holdem(props) {
         socket.emit("leave_seat", { table: 1, seatId: userData.seat, username: user[0].username });
     }
 
+    /* Reset of alert, comes from alert component */
+
     const alertCallback = () => {
         setAlertMessage('');
         setAlert(false);
     }
 
     React.useEffect(() => {
-        //console.log("Test print: " + JSON.stringify(user[0]));
-        socket.connect();
+        socket.connect(); // Creates a websocket connection through socket service module
 
-        /* Joining Server */
+        /* Socket Events */
+
+        /* Connecting to the server */
         socket.on("connect", () => {
             if (socket.connected) {
                 console.log("[Socket] Is Connected: " + socket.connected);
                 console.log("[Socket] Identifier: " + socket.id);
-
-                console.log("[Socket] Emitting JOIN ROOM");
+                console.log("[Socket] Join room.");
                 socket.emit("join_room", { name: user[0].username, room: "Pöytä 1" });
+                setUserData({ ...userData, socketId: socket.id, bet: 0, connectionStatus: true, roomName : "Pöytä 1" });
             }
         })
 
-        /* Socket Events */
-
         socket.on("disconnect", () => {
             console.log("[Socket] Client disconnected. ID: " + socket.id);
-            //setUserData({...userData, socketId: null, connectionStatus : false})
+            setUserData({ ...userData, socketId: null, connectionStatus: false });
         })
 
-        socket.on("notification", (data) => {
-            console.log("[Socket-Event] Notification Received: " + data.title + ", " + data.description);
-            //setUserData({...userData, socketId: data.id, username : data.name, roomName : data.room});
-        })
-
-        socket.on("users", (data) => {
-            console.log("[Socket-Event] User Notification: " + JSON.stringify(data));
-        })
-
-        /* General updates related to updating table */
+        /* General data updates related to the table */
         socket.on("updateTable", (data) => {
-            console.log("Update Table.");;
+            console.log("[Socket] Update Table.");;
             setPlayerData(data);
         })
 
         socket.on("startGame", (data) => {
-            console.log("Start game.");
+            console.log("[Socket] Start game.");
             setDealerVisible(true);
         })
 
+        /* Updates dealer cards */
+
         socket.on("updateTableCards", (data) => {
-            console.log("Uusi data:");
-            console.log(data);
+            console.log("[Socket] Uusi data: " + data);
             setTableData({ pot: 0.00, cards: [{ card: data[0].cards[0].card }] });
         })
+
+        /* User Error Handling and displaying alert */
 
         socket.on("userError", (data) => {
             setAlertMessage(data.message);
             setAlert(true);
         });
 
-    }, [user])
+    }, [userData, user])
 
     /* Rendering */
     return (
@@ -169,7 +160,7 @@ export default function Holdem(props) {
                     <Button className="controls" variant="contained" onClick={checkHand}>Check</Button>
                     <Button className="controls" variant="contained" onClick={betHand}>Bet</Button>
                     <TextField InputLabelProps={{ className: "textfield_label" }} className="textfield" id="outlined-basic" label="Bet Amount"
-                        variant="outlined" value={Number(userData.bet)} onChange={(e) => setUserData({ ...user, bet: Number(e.target.value) })} />
+                        variant="outlined" value={Number(userData.bet)} onChange={(e) => setUserData({ ...userData, bet: Number(e.target.value) })} />
                     <Button className="controls" style={{ backgroundColor: `rgb(255,0,0)`, marginLeft: '40px' }} variant="contained" onClick={leaveTable}>Leave table</Button>
                 </div>
                 <div className="players">
