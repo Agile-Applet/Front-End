@@ -16,78 +16,74 @@ export default function Holdem(props) {
     const user = useRecoilState(userState);
 
     /* General table data */
-    const [tableData, setTableData] = useState();
+    const [tableData, setTableData] = useState({ pot: 0.00 });
 
+    /* Status of table cards */
     const [dealerVisible, setDealerVisible] = useState(false);
 
     /* Table player data, per seat 
         This data updates regularly as the server sends updates
     */
-    const [playerData, setPlayerData] = useState([
-        { playerId: 1, playerName: "Tyhjä 1", seatStatus: 0, money: 0, lastBet: 0, hand: [{ card: "As" }, { card: "Ks" }], showHand: true, handPosition: 'player-cards-right', avatar: '' },
-        { playerId: 2, playerName: "Tyhjä 2", seatStatus: 0, money: 0, lastBet: 0, hand: [{ card: "As" }, { card: "Ks" }], showHand: true, handPosition: 'player-cards-left', avatar: '' },
-        { playerId: 3, playerName: "Tyhjä 3", seatStatus: 0, money: 0, lastBet: 0, hand: [{ card: "As" }, { card: "Ks" }], showHand: true, handPosition: 'player-cards-left', avatar: '' },
-        { playerId: 4, playerName: "Tyhjä 4", seatStatus: 0, money: 0, lastBet: 0, hand: [{ card: "As" }, { card: "Ks" }], showHand: true, handPosition: 'player-cards-left', avatar: '' },
-        { playerId: 5, playerName: "Tyhjä 5", seatStatus: 0, money: 0, lastBet: 0, hand: [{ card: "As" }, { card: "Ks" }], showHand: true, handPosition: 'player-cards-right', avatar: '' },
-        { playerId: 6, playerName: "Tyhjä 6", seatStatus: 0, money: 0, lastBet: 0, hand: [{ card: "As" }, { card: "Ks" }], showHand: true, handPosition: 'player-cards-right', avatar: '' }
-    ]);
+    const [playerData, setPlayerData] = useState([]);
 
+    /* Status of player action buttons */
     const [tableStatus, setTableStatus] = useState({ fold: true, check: true, bet: true, leave: true });
 
     /* Current Player Data */
     const [userData, setUserData] = useState({
-        seat: 1,
+        seat: null,
         socketId: null,
         connectionStatus: false,
         roomName: 'default',
         bet: 0
     });
 
+    /* Alerts and Buy-In modal */
     const buyRef = useRef();
     const [alertMessage, setAlertMessage] = useState('');
     const [showAlert, setAlert] = useState(false);
 
     /* Handle Buy-In to the table */
     const handleBuyin = (response) => {
+        setUserData({ ...userData, seat: response.seat });
         socket.emit("join_seat", { table: 1, seatId: response.seat, amount: response.amount, username: user.username });
-    }
+    };
 
     /* Open table buy in prompt */
     const openBuyin = (request) => {
-
         request = { seatId: request.seatId, table: request.table, uid: undefined, username: user[0].username, amount: user[0].amount }
         buyRef.current.showBuyin(request);
-    }
+    };
 
     /* Handle folding */
     const foldHand = () => {
         console.log("[Actions] Fold hand");
         socket.emit("fold_hand", { table: 1, seatId: userData.seat, username: user[0].username, foldHand: true })
-    }
+    };
 
     /* Handle checking */
     const checkHand = () => {
         console.log("[Actions] Check hand");
         socket.emit("check_hand", { table: 1, seatId: userData.seat, username: user[0].username, checkHand: true })
-    }
+    };
 
     /* Handle betting */
     const betHand = () => {
         console.log("[Actions] Bet Hand -> € " + userData.bet);
         socket.emit("bet_hand", { table: 1, seatId: userData.seat, username: user[0].username, betAmount: userData.bet })
-    }
+    };
 
     /* Handle leaving  */
     const leaveTable = () => {
         console.log("[Actions] Leave Table");
         socket.emit("leave_seat", { table: 1, seatId: userData.seat, username: user[0].username });
-    }
+    };
 
     /* Reset of alert, comes from alert component */
     const alertCallback = () => {
         setAlertMessage('');
         setAlert(false);
-    }
+    };
 
     React.useEffect(() => {
         socket.connect(); // Creates a websocket connection through socket service module
@@ -103,25 +99,25 @@ export default function Holdem(props) {
                 socket.emit("join_room", { name: user[0].username, room: "Pöytä 1" });
                 setUserData({ ...userData, socketId: socket.id, bet: 0, connectionStatus: true, roomName: "Pöytä 1" });
             }
-        })
+        });
 
         /* Disconnecting from the server */
         socket.on("disconnect", () => {
             console.log("[Socket] Client disconnected. ID: " + socket.id);
             setUserData({ ...userData, socketId: null, connectionStatus: false });
-        })
+        });
 
         /* General data updates related to the table */
         socket.on("updateTable", (data) => {
             console.log("[Socket] Update Table.");;
             setPlayerData(data);
-        })
+        });
 
         /* Starts a new round */
         socket.on("startGame", (data) => {
-            console.log("[Socket] Start game.");
-            setDealerVisible(true);
-        })
+            console.log("[Socket] Start/stop game.");
+            setDealerVisible(data);
+        });
 
         /* Updates dealer cards */
         socket.on("updateTableCards", (data) => {
@@ -130,7 +126,7 @@ export default function Holdem(props) {
                 data[0].cards.splice(3, 2);
             }
             setTableData({ pot: data[0].pot, cards: data[0].cards });
-        })
+        });
 
         /* User Error Handling and displaying alert */
         socket.on("userError", (data) => {
