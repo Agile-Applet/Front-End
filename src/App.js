@@ -32,7 +32,7 @@ function App() {
                 <Game
                   size={"600px"}
                   name={"Texas Hold'em"}
-                  description={"Astu mukavan pokerin maailmaan!"}
+                  description={"Small Blind 50 € / Big Blind 100 € Min 1000 € / Max 5000 €"}
                   url={"/holdem"}
                   image={
                     "https://i0.wp.com/golflakeridge.com/wp-content/uploads/2017/09/Texas_Hold_em_Logo_000.png?resize=845%2C321&ssl=1"

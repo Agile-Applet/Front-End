@@ -7,12 +7,13 @@ import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
 
 export default function Game(props) {
+
   return (
     <div>
       <Card sx={{ maxWidth: props.size }}>
         <CardMedia
           component="img"
-          alt="green iguana"
+          alt="img"
           height="140"
           image={props.image}
         />

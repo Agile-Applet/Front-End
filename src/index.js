@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import ReactDOM from "react-dom";
 import "./index.css";
 import App from './App';
@@ -6,13 +6,13 @@ import * as serviceWorkerRegistration from "./serviceWorkerRegistration";
 import reportWebVitals from "./reportWebVitals";
 import { ThemeProvider } from "@mui/material/styles";
 import { createTheme } from "@material-ui/core";
-import { BrowserRouter as Router, Routes, Route} from "react-router-dom";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { RecoilRoot } from 'recoil';
 
 import Login from './components/Login';
 import Register from './components/Register';
-
 import Holdem from './holdem/index';
-import { RecoilRoot } from 'recoil';
+
 
 const theme = createTheme({
   palette: {
@@ -34,16 +34,16 @@ const theme = createTheme({
 ReactDOM.render(
   <React.StrictMode>
     <ThemeProvider theme={theme}>
-    <Router>
-      <RecoilRoot>
-        <Routes>
-          <Route path="/login" element={<Login/>}/>
-          <Route path="/holdem" element={<Holdem/>}></Route>
-          <Route path="/register" element={<Register/>}/>
-          <Route path="/" element={<App/>}/>
-        </Routes>
-      </RecoilRoot>
-    </Router>
+      <Router>
+        <RecoilRoot>
+          <Routes>
+            <Route path="/login" element={<Login />} />
+            <Route path="holdem" element={<Holdem />}></Route>
+            <Route path="/register" element={<Register />} />
+            <Route path="/" element={<App />} />
+          </Routes>
+        </RecoilRoot>
+      </Router>
     </ThemeProvider>
   </React.StrictMode>,
   document.getElementById("root")

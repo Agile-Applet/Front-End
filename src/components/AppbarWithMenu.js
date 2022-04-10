@@ -24,13 +24,11 @@ import Dialog from "@mui/material/Dialog";
 import DialogContent from "@mui/material/DialogContent";
 import DialogTitle from "@mui/material/DialogTitle";
 import Api from "../services/Api";
+import { useRecoilState } from 'recoil';
 
 import Login from "./Login";
 import Register from "./Register";
 import Deposit from "./Deposit";
-
-import { useRecoilState } from 'recoil';
-
 import { userState } from '../services/User';
 
 const UserContext = React.createContext({});
@@ -46,12 +44,11 @@ export default function Appbar() {
   useEffect(() => {
     const user = localStorage.getItem("user");
     if (user) {
-      console.log(user);
       setUser(JSON.parse(user));
     } else {
       const usr = {
         username: "",
-        saldo: 0.0,
+        amount: 0.0,
         isAdmin: false,
         isLogged: false,
         cookie: null,
@@ -68,7 +65,7 @@ export default function Appbar() {
     setLogout(true);
     const usr = {
       username: "",
-      saldo: 0.0,
+      amount: 0.0,
       isAdmin: false,
       isLogged: false,
       cookie: null,
@@ -85,14 +82,14 @@ export default function Appbar() {
   };
 
   const handleDeposit = (response) => {
-    setUser({ ...user, saldo: response.saldo })
+    setUser({ ...user, amount: response.amount })
     localStorage.setItem("user", JSON.stringify(user));
   }
 
   const handleUserdata = (response) => {
     const usr = {
       username: response.username,
-      saldo: response.saldo,
+      amount: response.amount,
       isAdmin: response.isAdmin,
       isLogged: response.isLogged,
       cookie: response.cookie,
@@ -139,7 +136,7 @@ export default function Appbar() {
               <EuroIcon />
             </ListItemIcon>
             <ListItemText
-              primary={user.saldo}
+              primary={user.amount}
               style={{ color: "#ffffff", fontWeight: "bold" }}
             />
           </ListItem>

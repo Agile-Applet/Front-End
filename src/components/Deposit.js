@@ -35,7 +35,7 @@ export default forwardRef((props, ref) => {
     const usr = JSON.parse(localStorage.getItem("user"));
     const response = await Api.postData("/deposit", {
       username: usr.username,
-      amount: data.amount,
+      reqAmount: data.amount,
     });
     if (response.status === 200) {
       showAlert("success", "Talletus onnistui", 1000, true);
@@ -56,6 +56,7 @@ export default forwardRef((props, ref) => {
   }));
 
   const handleClose = () => {
+    setData({ amount: 0 });
     setOpen(false);
   };
 

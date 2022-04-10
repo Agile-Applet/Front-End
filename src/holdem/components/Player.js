@@ -7,6 +7,7 @@ export default function Player(props) {
 
     const takeSeat = (seatId) => {
         console.log("[Actions] Take seat: " + seatId);
+        console.log("[Actions] Take seat: " + props.player.playerId);
         props.controlBuyin({ table: 1, seatId: seatId, username: props.user.username, uid: props.user.uid });
     }
 
@@ -15,7 +16,7 @@ export default function Player(props) {
             <div key={props.player.playerId} className={`player-${props.player.playerId}`}>
                 <div className="avatar-normal">
                     <Avatar sx={{ display: 'block', marginLeft: 'auto', marginRight: 'auto', padding: '6px 12px', width: 120, height: 120 }} src={props.player.avatar}></Avatar>
-                    <p className="avatar-normal">{props.player.playerName}</p>
+                    <p className="avatar-normal">{props.player.playerName + props.player.role}</p>
                     <div className="avatar-money">
                         <img alt="chips" className="avatar-money" src={(`../assets/chips.svg`)} />
                         <p className="avatar-money">Money: {props.player.money}</p>

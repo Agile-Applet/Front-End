@@ -190,17 +190,18 @@ div.player-3 {
     width: 200px;
     height: 100px;
     position: relative;
-    bottom: 8rem;
-    left: 36rem;
+    bottom: 1rem;
+    right: 36rem;
     margin: auto;
 }
+
 
 div.player-4 {
     width: 200px;
     height: 100px;
     position: relative;
-    bottom: 14rem;
-    right: 36rem;
+    bottom: 35.7rem;
+    right: 25rem;
     margin: auto;
 }
 
@@ -208,8 +209,8 @@ div.player-5 {
     width: 200px;
     height: 100px;
     position: relative;
-    bottom: 44rem;
-    right: 25rem;
+    bottom: 42rem;
+    left: 25rem;
     margin: auto;
 }
 
@@ -217,10 +218,11 @@ div.player-6 {
     width: 200px;
     height: 100px;
     position: relative;
-    bottom: 50rem;
-    left: 25rem;
+    bottom: 21rem;
+    left: 36rem;
     margin: auto;
 }
+
 
 img.playcard {
     width: 80px;
@@ -234,7 +236,7 @@ img.playcard {
         width: 200px;
         height: 100px;
         position: relative;
-        top: 25.2rem;
+        top: 27rem;
         left: 15rem;
         margin: auto;
     }
@@ -243,7 +245,7 @@ img.playcard {
         width: 200px;
         height: 100px;
         position: relative;
-        top: 19rem;
+        top: 20.7rem;
         right: 15rem;
         margin: auto;
     }
@@ -252,8 +254,8 @@ img.playcard {
         width: 200px;
         height: 100px;
         position: relative;
-        bottom: 4rem;
-        left: 31rem;
+        bottom: -3rem;
+        right: 31rem;
         margin: auto;
     }
     
@@ -261,8 +263,8 @@ img.playcard {
         width: 200px;
         height: 100px;
         position: relative;
-        bottom: 10rem;
-        right: 31rem;
+        bottom: 22rem;
+        left: -20rem;
         margin: auto;
     }
     
@@ -270,7 +272,7 @@ img.playcard {
         width: 200px;
         height: 100px;
         position: relative;
-        bottom: 36rem;
+        bottom: 28.3rem;
         right: 25rem;
         margin: auto;
     }
@@ -279,8 +281,8 @@ img.playcard {
         width: 200px;
         height: 100px;
         position: relative;
-        bottom: 42.5rem;
-        left: 25rem;
+        bottom: 16rem;
+        left: 31rem;
         margin: auto;
     }
 }
