@@ -7,7 +7,6 @@ export default function Player(props) {
 
     const takeSeat = (seatId) => {
         console.log("[Actions] Take seat: " + seatId);
-        console.log("[Actions] Take seat: " + props.player.playerId);
         props.controlBuyin({ table: 1, seatId: seatId, username: props.user.username, uid: props.user.uid });
     }
 
@@ -33,6 +32,16 @@ export default function Player(props) {
                         })}
                     </div>
                 }
+            </div>
+        )
+    } else if (props.player.seatStatus === 2) {
+        return (
+            <div key={props.player.playerId} className={`player-${props.player.playerId}`}>
+                <div className="avatar-normal">
+                    <Avatar sx={{ display: 'block', marginLeft: 'auto', marginRight: 'auto', padding: '6px 12px', width: 120, height: 120 }} src={(`../assets/freeseat.png`)} />
+                    <p className="avatar-normal">Free Seat</p>
+                    <Button variant="contained" className="avatar-normal" onClick={(e) => takeSeat(`${props.player.playerId}`)} disabled>Take Seat</Button>
+                </div>
             </div>
         )
     } else {

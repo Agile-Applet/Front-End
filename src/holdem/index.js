@@ -96,8 +96,8 @@ export default function Holdem(props) {
                 console.log("[Socket] Is Connected: " + socket.connected);
                 console.log("[Socket] Identifier: " + socket.id);
                 console.log("[Socket] Join room.");
-                socket.emit("join_room", { name: user[0].username, room: "Pöytä 1" });
-                setUserData({ ...userData, socketId: socket.id, bet: 0, connectionStatus: true, roomName: "Pöytä 1" });
+                socket.emit("join_room", { name: user[0].username, room: "Table 1" });
+                setUserData({ ...userData, socketId: socket.id, bet: 0, connectionStatus: true, roomName: "Table 1" });
             }
         });
 
@@ -108,12 +108,12 @@ export default function Holdem(props) {
         });
 
         /* General data updates related to the table */
-        socket.on("updateTable", (data) => {
-            console.log("[Socket] Update Table.");;
+        socket.on("updatePlayer", (data) => {
+            console.log("[Socket] Update player data.");;
             setPlayerData(data);
         });
 
-        /* Starts a new round */
+        /* Starts or stops the round */
         socket.on("startGame", (data) => {
             console.log("[Socket] Start/stop game.");
             setDealerVisible(data);
@@ -144,15 +144,15 @@ export default function Holdem(props) {
                 {alertMessage.length > 5 && showAlert &&
                     <AlertBox message={alertMessage} callback={alertCallback} />
                 }
-                {dealerVisible ? <div>
-                    <div className="table-pot">
-                        <p className="table-pot">Pot: € {tableData.pot}</p>
-                    </div>
+                <div className="table-pot">
+                    <p className="table-pot">Pot: € {tableData.pot}</p>
+                </div>
+                {dealerVisible ?
                     <div className="table-cards">
                         {tableData.cards.map((item, key) => {
                             return (<Playcard card={item.card} key={key} className="playcard" alt="card" />)
                         })}
-                    </div></div> : null}
+                    </div> : null}
                 <div className="dealer">
                     <div className="avatar-normal">
                         <Avatar alt="avatar" src={'https://cdna.artstation.com/p/assets/images/images/039/426/688/large/marina-oman-woman2.jpg?1625858913'} sx={{ display: 'block', marginLeft: 'auto', marginRight: 'auto', padding: '6px 12px', width: 120, height: 120 }}></Avatar>

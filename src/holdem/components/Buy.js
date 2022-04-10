@@ -39,6 +39,7 @@ export default forwardRef((props, ref) => {
       } else {
         showAlert("success", "Liitytään pöytään.", 1000, true);
         boughtIn({ table: tableId, seat: seatId, amount: amount })
+        setAmount(0);
       }
     } else {
       setAmount(0);
