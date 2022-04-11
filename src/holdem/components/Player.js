@@ -34,7 +34,7 @@ export default function Player(props) {
                 </div>
                 {props.player.hand.length > 0 &&
                     <div className={props.player.handPosition}>
-                        {props.player.hand.map((item, key) => {
+                        {props.player.hand.slice(0,2).map((item, key) => {
                             return (<Playcard card={item.card} key={key} className="playcard" back={props.player.showHand} />)
                         })}
                     </div>

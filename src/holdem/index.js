@@ -106,6 +106,7 @@ export default function Holdem(props) {
 
         /* General data updates related to the player */
         socket.on("updatePlayer", (data) => {
+            console.log(data);
             console.log("[Socket] Update player data.");;
             setPlayerData(data);
         });
