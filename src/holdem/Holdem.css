@@ -229,14 +229,18 @@ img.playcard {
 }
 
 @media screen and ( max-width: 2560px ) {
+    div.controls {
+        top: 2rem;
+        height: 55px;
+    }
     div.dealer {
-        top: -50rem;
+        bottom: 10rem;
     }
     div.player-0 {
         width: 200px;
         height: 100px;
         position: relative;
-        top: 37rem;
+        top: 32rem;
         left: 15rem;
         margin: auto;
     }
@@ -245,7 +249,7 @@ img.playcard {
         width: 200px;
         height: 100px;
         position: relative;
-        top: 30.7rem;
+        top: 25.7rem;
         right: 15rem;
         margin: auto;
     }
@@ -254,7 +258,7 @@ img.playcard {
         width: 200px;
         height: 100px;
         position: relative;
-        bottom: -3rem;
+        bottom: 10rem;
         right: 40rem;
         margin: auto;
     }
@@ -263,8 +267,8 @@ img.playcard {
         width: 200px;
         height: 100px;
         position: relative;
-        bottom: 30rem;
-        left: -22rem;
+        bottom: 35rem;
+        left: -24rem;
         margin: auto;
     }
     
@@ -272,7 +276,7 @@ img.playcard {
         width: 200px;
         height: 100px;
         position: relative;
-        bottom: 36rem;
+        bottom: 41rem;
         left: 22rem;
         margin: auto;
     }
@@ -281,9 +285,12 @@ img.playcard {
         width: 200px;
         height: 100px;
         position: relative;
-        bottom: 16rem;
+        bottom: 28rem;
         left: 40rem;
         margin: auto;
+    }
+    div.controls {
+        top: 4rem;
     }
 }
 
@@ -291,11 +298,15 @@ img.playcard {
     div.dealer {
         top: -45rem;
     }
+    div.controls {
+        top: 2rem;
+        height: 55px;
+    }
     div.player-0 {
         width: 200px;
         height: 100px;
         position: relative;
-        top: 37rem;
+        top: 30rem;
         left: 15rem;
         margin: auto;
     }
@@ -304,7 +315,7 @@ img.playcard {
         width: 200px;
         height: 100px;
         position: relative;
-        top: 30.7rem;
+        top: 23.7rem;
         right: 15rem;
         margin: auto;
     }
@@ -313,7 +324,7 @@ img.playcard {
         width: 200px;
         height: 100px;
         position: relative;
-        bottom: -3rem;
+        bottom: 6rem;
         right: 35rem;
         margin: auto;
     }
@@ -322,7 +333,7 @@ img.playcard {
         width: 200px;
         height: 100px;
         position: relative;
-        bottom: 25rem;
+        bottom: 31rem;
         left: -22rem;
         margin: auto;
     }
@@ -331,7 +342,7 @@ img.playcard {
         width: 200px;
         height: 100px;
         position: relative;
-        bottom: 31.3rem;
+        bottom: 37rem;
         left: 24rem;
         margin: auto;
     }
@@ -340,7 +351,7 @@ img.playcard {
         width: 200px;
         height: 100px;
         position: relative;
-        bottom: 16rem;
+        bottom: 25rem;
         left: 35rem;
         margin: auto;
     }
@@ -350,11 +361,14 @@ img.playcard {
     div.dealer {
         top: -40rem;
     }
+    div.controls {
+        top: 2rem;
+    }
     div.player-0 {
         width: 200px;
         height: 100px;
         position: relative;
-        top: 38rem;
+        top: 31.5rem;
         left: 15rem;
         margin: auto;
     }
@@ -363,7 +377,7 @@ img.playcard {
         width: 200px;
         height: 100px;
         position: relative;
-        top: 31.7rem;
+        top: 25rem;
         right: 15rem;
         margin: auto;
     }
@@ -372,7 +386,7 @@ img.playcard {
         width: 200px;
         height: 100px;
         position: relative;
-        bottom: -8rem;
+        bottom: 0rem;
         right: 31.5rem;
         margin: auto;
     }
@@ -381,7 +395,7 @@ img.playcard {
         width: 200px;
         height: 100px;
         position: relative;
-        bottom: 20.3rem;
+        bottom: 24.3rem;
         left: -23rem;
         margin: auto;
     }
@@ -390,7 +404,7 @@ img.playcard {
         width: 200px;
         height: 100px;
         position: relative;
-        bottom: 26.3rem;
+        bottom: 30.3rem;
         left: 24rem;
         margin: auto;
     }
@@ -399,9 +413,13 @@ img.playcard {
         width: 200px;
         height: 100px;
         position: relative;
-        bottom: 10rem;
+        bottom: 19rem;
         left: 31.5rem;
         margin: auto;
+    }
+
+    div.controls {
+        top: 4rem;
     }
 }
 
@@ -409,11 +427,14 @@ img.playcard {
     div.dealer {
         top: -35rem;
     }
+    div.controls {
+        top: 4rem;
+    }
     div.player-0 {
         width: 200px;
         height: 100px;
         position: relative;
-        top: 37rem;
+        top: 34rem;
         left: 15rem;
         margin: auto;
     }
@@ -422,7 +443,7 @@ img.playcard {
         width: 200px;
         height: 100px;
         position: relative;
-        top: 30.7rem;
+        top: 27.7rem;
         right: 15rem;
         margin: auto;
     }
@@ -431,7 +452,7 @@ img.playcard {
         width: 200px;
         height: 100px;
         position: relative;
-        bottom: -8rem;
+        bottom: -3rem;
         right: 28rem;
         margin: auto;
     }
@@ -440,7 +461,7 @@ img.playcard {
         width: 200px;
         height: 100px;
         position: relative;
-        bottom: 14.3rem;
+        bottom: 20.3rem;
         left: -22rem;
         margin: auto;
     }
@@ -449,8 +470,8 @@ img.playcard {
         width: 200px;
         height: 100px;
         position: relative;
-        bottom: 20.3rem;
-        left: 24rem;
+        bottom: 26.3rem;
+        left: 22rem;
         margin: auto;
     }
     
@@ -458,9 +479,12 @@ img.playcard {
         width: 200px;
         height: 100px;
         position: relative;
-        bottom: 10rem;
+        bottom: 16rem;
         left: 28rem;
         margin: auto;
+    }
+    div.controls {
+        top: 6rem;
     }
 }
 
@@ -469,16 +493,16 @@ img.playcard {
 @media screen and ( max-width: 1008px ) {
     /*div.avatar-normal, button.avatar-normal {
         width: 120px;
-    }*/
+    }
 
-    img.avatar-normal {
-        width: 80px;
-        height: 80px;
+    img.Mui-Avatar {
+        width: 60px;
+        height: 60px;
         display: 'block';
         margin-left: 'auto';
         margin-right: 'auto';
         padding: '6px 12px';
-    }
+    }*/
 
     div.dealer {
         top: -30rem;
@@ -487,8 +511,8 @@ img.playcard {
         width: 200px;
         height: 100px;
         position: relative;
-        top: 37rem;
-        left: 15rem;
+        top: 35rem;
+        left: 8rem;
         margin: auto;
     }
     
@@ -496,8 +520,8 @@ img.playcard {
         width: 200px;
         height: 100px;
         position: relative;
-        top: 30.7rem;
-        right: 15rem;
+        top: 28.7rem;
+        right: 8rem;
         margin: auto;
     }
     
@@ -505,8 +529,8 @@ img.playcard {
         width: 200px;
         height: 100px;
         position: relative;
-        bottom: -8rem;
-        right: 22rem;
+        bottom: -8.5rem;
+        right: 23rem;
         margin: auto;
     }
     
@@ -514,8 +538,8 @@ img.playcard {
         width: 200px;
         height: 100px;
         position: relative;
-        bottom: 14.3rem;
-        left: -16rem;
+        bottom: 13.3rem;
+        left: -20rem;
         margin: auto;
     }
     
@@ -523,8 +547,8 @@ img.playcard {
         width: 200px;
         height: 100px;
         position: relative;
-        bottom: 20.3rem;
-        left: 16.3rem;
+        bottom: 19.3rem;
+        left: 20.3rem;
         margin: auto;
     }
     
@@ -533,15 +557,10 @@ img.playcard {
         height: 100px;
         position: relative;
         bottom: 10rem;
-        left: 22rem;
+        left: 23rem;
         margin: auto;
     }
-}
-
-@media screen and ( max-width: 1199px ) {
-    div.main {
-    }
-    img.playcard {
-        width: 60px;
+    div.controls {
+        width: auto;
     }
 }

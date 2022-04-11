@@ -45,7 +45,7 @@ export default function Player(props) {
         return (
             <div key={props.player.playerId} className={`player-${props.player.playerId}`}>
                 <div className="avatar-normal">
-                    <Avatar sx={{ display: 'block', marginLeft: 'auto', marginRight: 'auto', padding: '6px 12px', width: 120, height: 120 }} src={(`../assets/freeseat.png`)} />
+                    <Avatar className="avatar-normal" sx={{ display: 'block', marginLeft: 'auto', marginRight: 'auto', padding: '6px 12px', width: 120, height: 120 }} src={(`../assets/freeseat.png`)} />
                     <p className="avatar-normal">Free Seat</p>
                     <Button variant="contained" className="avatar-normal" onClick={(e) => takeSeat(`${props.player.playerId}`)} disabled>Take Seat</Button>
                 </div>
@@ -55,7 +55,7 @@ export default function Player(props) {
         return (
             <div key={props.player.playerId} className={`player-${props.player.playerId}`}>
                 <div className="avatar-normal">
-                    <Avatar sx={{ display: 'block', marginLeft: 'auto', marginRight: 'auto', padding: '6px 12px', width: 120, height: 120 }} src={(`../assets/freeseat.png`)} />
+                    <Avatar className="avatar-normal" sx={{ display: 'block', marginLeft: 'auto', marginRight: 'auto', padding: '6px 12px', width: 120, height: 120 }} src={(`../assets/freeseat.png`)} />
                     <p className="avatar-normal">Free Seat</p>
                     <Button variant="contained" className="avatar-normal" onClick={(e) => takeSeat(`${props.player.playerId}`)}>Take Seat</Button>
                 </div>

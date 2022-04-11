@@ -156,16 +156,14 @@ export default function Holdem(props) {
                         <p className="avatar-normal">50 € / 100 €</p>
                     </div>
                 </div>
-                {tableStatus ?
-                    <div className="controls">
-                        <Button className="controls" variant="contained" onClick={foldHand}>Fold</Button>
-                        <Button className="controls" variant="contained" onClick={checkHand}>Check</Button>
-                        <Button className="controls" variant="contained" onClick={betHand}>Bet</Button>
-                        <TextField InputLabelProps={{ className: "textfield_label" }} className="textfield" id="outlined-basic" label="Bet Amount"
-                            variant="outlined" value={Number(userData.bet)} onChange={(e) => setUserData({ ...userData, bet: Number(e.target.value) })} />
-                        <Button className="controls" style={{ backgroundColor: `rgb(255,0,0)`, marginLeft: '40px' }} variant="contained" onClick={leaveTable}>Leave table</Button>
-                    </div>
-                    : null}
+                <div className="controls">
+                    <Button className="controls" variant="contained" onClick={foldHand}>Fold</Button>
+                    <Button className="controls" variant="contained" onClick={checkHand}>Check</Button>
+                    <Button className="controls" variant="contained" onClick={betHand}>Bet</Button>
+                    <TextField InputLabelProps={{ className: "textfield_label" }} className="textfield" id="outlined-basic" label="Bet Amount"
+                        variant="outlined" value={Number(userData.bet)} onChange={(e) => setUserData({ ...userData, bet: Number(e.target.value) })} />
+                    <Button className="controls" style={{ backgroundColor: `rgb(255,0,0)`, marginLeft: '40px' }} variant="contained" onClick={leaveTable}>Leave table</Button>
+                </div>
                 <div className="players">
                     <Buy buyCallback={handleBuyin} ref={buyRef} />
                     {playerData.map(player => (
