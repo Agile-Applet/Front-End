@@ -169,7 +169,7 @@ export default function Holdem(props) {
                 <div className="players">
                     <Buy buyCallback={handleBuyin} ref={buyRef} />
                     {playerData.map(player => (
-                        <Player key={player.playerId} player={player} user={userData} controlBuyin={openBuyin} />
+                        <Player key={player.playerId} player={player} user={userData} playerData={playerData} controlBuyin={openBuyin} />
                     ))}
                 </div>
             </div>

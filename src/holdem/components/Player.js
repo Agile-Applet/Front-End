@@ -10,10 +10,17 @@ export default function Player(props) {
         props.controlBuyin({ table: 1, seatId: seatId, username: props.user.username, uid: props.user.uid });
     }
 
+    /* Changes avatar style in case of turn */
+
+    let avatarClass = 'avatar-normal';
+    if ( props.player.hasTurn ) {
+        avatarClass = 'avatar-turn';
+    }
+
     if (props.player.seatStatus === 1) {
         return (
             <div key={props.player.playerId} className={`player-${props.player.playerId}`}>
-                <div className="avatar-normal">
+                <div className={avatarClass}>
                     <Avatar sx={{ display: 'block', marginLeft: 'auto', marginRight: 'auto', padding: '6px 12px', width: 120, height: 120 }} src={props.player.avatar}></Avatar>
                     <p className="avatar-normal">{props.player.playerName + props.player.role}</p>
                     <div className="avatar-money">
