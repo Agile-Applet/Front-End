@@ -228,15 +228,15 @@ img.playcard {
     width: 80px;
 }
 
-@media screen and ( max-width: 1700px) {
+@media screen and ( max-width: 2560px ) {
     div.dealer {
-        top: -45rem;
+        top: -50rem;
     }
     div.player-0 {
         width: 200px;
         height: 100px;
         position: relative;
-        top: 27rem;
+        top: 37rem;
         left: 15rem;
         margin: auto;
     }
@@ -245,7 +245,7 @@ img.playcard {
         width: 200px;
         height: 100px;
         position: relative;
-        top: 20.7rem;
+        top: 30.7rem;
         right: 15rem;
         margin: auto;
     }
@@ -255,7 +255,7 @@ img.playcard {
         height: 100px;
         position: relative;
         bottom: -3rem;
-        right: 31rem;
+        right: 40rem;
         margin: auto;
     }
     
@@ -263,8 +263,8 @@ img.playcard {
         width: 200px;
         height: 100px;
         position: relative;
-        bottom: 22rem;
-        left: -20rem;
+        bottom: 30rem;
+        left: -22rem;
         margin: auto;
     }
     
@@ -272,8 +272,8 @@ img.playcard {
         width: 200px;
         height: 100px;
         position: relative;
-        bottom: 28.3rem;
-        right: 25rem;
+        bottom: 36rem;
+        left: 22rem;
         margin: auto;
     }
     
@@ -282,14 +282,264 @@ img.playcard {
         height: 100px;
         position: relative;
         bottom: 16rem;
-        left: 31rem;
+        left: 40rem;
+        margin: auto;
+    }
+}
+
+@media screen and ( max-width: 1980px) {
+    div.dealer {
+        top: -45rem;
+    }
+    div.player-0 {
+        width: 200px;
+        height: 100px;
+        position: relative;
+        top: 37rem;
+        left: 15rem;
+        margin: auto;
+    }
+    
+    div.player-1 {
+        width: 200px;
+        height: 100px;
+        position: relative;
+        top: 30.7rem;
+        right: 15rem;
+        margin: auto;
+    }
+    
+    div.player-2 {
+        width: 200px;
+        height: 100px;
+        position: relative;
+        bottom: -3rem;
+        right: 35rem;
+        margin: auto;
+    }
+    
+    div.player-3 {
+        width: 200px;
+        height: 100px;
+        position: relative;
+        bottom: 25rem;
+        left: -22rem;
+        margin: auto;
+    }
+    
+    div.player-4 {
+        width: 200px;
+        height: 100px;
+        position: relative;
+        bottom: 31.3rem;
+        left: 24rem;
+        margin: auto;
+    }
+    
+    div.player-5 {
+        width: 200px;
+        height: 100px;
+        position: relative;
+        bottom: 16rem;
+        left: 35rem;
+        margin: auto;
+    }
+}
+
+@media screen and ( max-width: 1600px ) {
+    div.dealer {
+        top: -40rem;
+    }
+    div.player-0 {
+        width: 200px;
+        height: 100px;
+        position: relative;
+        top: 38rem;
+        left: 15rem;
+        margin: auto;
+    }
+    
+    div.player-1 {
+        width: 200px;
+        height: 100px;
+        position: relative;
+        top: 31.7rem;
+        right: 15rem;
+        margin: auto;
+    }
+    
+    div.player-2 {
+        width: 200px;
+        height: 100px;
+        position: relative;
+        bottom: -8rem;
+        right: 31.5rem;
+        margin: auto;
+    }
+    
+    div.player-3 {
+        width: 200px;
+        height: 100px;
+        position: relative;
+        bottom: 20.3rem;
+        left: -23rem;
+        margin: auto;
+    }
+    
+    div.player-4 {
+        width: 200px;
+        height: 100px;
+        position: relative;
+        bottom: 26.3rem;
+        left: 24rem;
+        margin: auto;
+    }
+    
+    div.player-5 {
+        width: 200px;
+        height: 100px;
+        position: relative;
+        bottom: 10rem;
+        left: 31.5rem;
+        margin: auto;
+    }
+}
+
+@media screen and ( max-width: 1366px ) {
+    div.dealer {
+        top: -35rem;
+    }
+    div.player-0 {
+        width: 200px;
+        height: 100px;
+        position: relative;
+        top: 37rem;
+        left: 15rem;
+        margin: auto;
+    }
+    
+    div.player-1 {
+        width: 200px;
+        height: 100px;
+        position: relative;
+        top: 30.7rem;
+        right: 15rem;
+        margin: auto;
+    }
+    
+    div.player-2 {
+        width: 200px;
+        height: 100px;
+        position: relative;
+        bottom: -8rem;
+        right: 28rem;
+        margin: auto;
+    }
+    
+    div.player-3 {
+        width: 200px;
+        height: 100px;
+        position: relative;
+        bottom: 14.3rem;
+        left: -22rem;
+        margin: auto;
+    }
+    
+    div.player-4 {
+        width: 200px;
+        height: 100px;
+        position: relative;
+        bottom: 20.3rem;
+        left: 24rem;
+        margin: auto;
+    }
+    
+    div.player-5 {
+        width: 200px;
+        height: 100px;
+        position: relative;
+        bottom: 10rem;
+        left: 28rem;
+        margin: auto;
+    }
+}
+
+/* TODO: implement avatars to go smaller related to the table and screen size */
+
+@media screen and ( max-width: 1008px ) {
+    /*div.avatar-normal, button.avatar-normal {
+        width: 120px;
+    }*/
+
+    img.avatar-normal {
+        width: 80px;
+        height: 80px;
+        display: 'block';
+        margin-left: 'auto';
+        margin-right: 'auto';
+        padding: '6px 12px';
+    }
+
+    div.dealer {
+        top: -30rem;
+    }
+    div.player-0 {
+        width: 200px;
+        height: 100px;
+        position: relative;
+        top: 37rem;
+        left: 15rem;
+        margin: auto;
+    }
+    
+    div.player-1 {
+        width: 200px;
+        height: 100px;
+        position: relative;
+        top: 30.7rem;
+        right: 15rem;
+        margin: auto;
+    }
+    
+    div.player-2 {
+        width: 200px;
+        height: 100px;
+        position: relative;
+        bottom: -8rem;
+        right: 22rem;
+        margin: auto;
+    }
+    
+    div.player-3 {
+        width: 200px;
+        height: 100px;
+        position: relative;
+        bottom: 14.3rem;
+        left: -16rem;
+        margin: auto;
+    }
+    
+    div.player-4 {
+        width: 200px;
+        height: 100px;
+        position: relative;
+        bottom: 20.3rem;
+        left: 16.3rem;
+        margin: auto;
+    }
+    
+    div.player-5 {
+        width: 200px;
+        height: 100px;
+        position: relative;
+        bottom: 10rem;
+        left: 22rem;
         margin: auto;
     }
 }
 
 @media screen and ( max-width: 1199px ) {
     div.main {
-        display: none;
     }
     img.playcard {
         width: 60px;
