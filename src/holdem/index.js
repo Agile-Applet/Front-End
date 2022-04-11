@@ -16,20 +16,17 @@ export default function Holdem(props) {
     const user = useRecoilState(userState);
 
     /* General table data */
-    const [tableData, setTableData] = useState({ pot: 0.00 });
-
-    /* Status of table cards */
-    const [dealerVisible, setDealerVisible] = useState(false);
+    const [tableData, setTableData] = useState({ pot: 0.00, cards: [] });
 
     /* Table player data, per seat 
         This data updates regularly as the server sends updates
     */
     const [playerData, setPlayerData] = useState([]);
 
-    /* Status of player action buttons */
-    const [tableStatus, setTableStatus] = useState({ fold: true, check: true, bet: true, leave: true });
+    /* Status of table cards and player action buttons */
+    const [tableStatus, setTableStatus] = useState(false);
 
-    /* Current Player Data */
+    /* Current User Data */
     const [userData, setUserData] = useState({
         seat: null,
         socketId: null,
@@ -107,16 +104,16 @@ export default function Holdem(props) {
             setUserData({ ...userData, socketId: null, connectionStatus: false });
         });
 
-        /* General data updates related to the table */
+        /* General data updates related to the player */
         socket.on("updatePlayer", (data) => {
             console.log("[Socket] Update player data.");;
             setPlayerData(data);
         });
 
         /* Starts or stops the round */
-        socket.on("startGame", (data) => {
-            console.log("[Socket] Start/stop game.");
-            setDealerVisible(data);
+        socket.on("syncGame", (data) => {
+            console.log("[Socket] Start/stop round.");
+            setTableStatus(data);
         });
 
         /* Updates dealer cards */
@@ -147,7 +144,7 @@ export default function Holdem(props) {
                 <div className="table-pot">
                     <p className="table-pot">Pot: € {tableData.pot}</p>
                 </div>
-                {dealerVisible ?
+                {tableStatus ?
                     <div className="table-cards">
                         {tableData.cards.map((item, key) => {
                             return (<Playcard card={item.card} key={key} className="playcard" alt="card" />)
@@ -159,14 +156,16 @@ export default function Holdem(props) {
                         <p className="avatar-normal">50 € / 100 €</p>
                     </div>
                 </div>
-                <div className="controls">
-                    <Button className="controls" variant="contained" onClick={foldHand} disabled={!tableStatus.fold}>Fold</Button>
-                    <Button className="controls" variant="contained" onClick={checkHand} disabled={!tableStatus.check}>Check</Button>
-                    <Button className="controls" variant="contained" onClick={betHand} disabled={!tableStatus.bet}>Bet</Button>
-                    <TextField InputLabelProps={{ className: "textfield_label" }} className="textfield" id="outlined-basic" label="Bet Amount"
-                        variant="outlined" value={Number(userData.bet)} onChange={(e) => setUserData({ ...userData, bet: Number(e.target.value) })} />
-                    <Button className="controls" style={{ backgroundColor: `rgb(255,0,0)`, marginLeft: '40px' }} variant="contained" onClick={leaveTable} disabled={!tableStatus.leave}>Leave table</Button>
-                </div>
+                {tableStatus ?
+                    <div className="controls">
+                        <Button className="controls" variant="contained" onClick={foldHand}>Fold</Button>
+                        <Button className="controls" variant="contained" onClick={checkHand}>Check</Button>
+                        <Button className="controls" variant="contained" onClick={betHand}>Bet</Button>
+                        <TextField InputLabelProps={{ className: "textfield_label" }} className="textfield" id="outlined-basic" label="Bet Amount"
+                            variant="outlined" value={Number(userData.bet)} onChange={(e) => setUserData({ ...userData, bet: Number(e.target.value) })} />
+                        <Button className="controls" style={{ backgroundColor: `rgb(255,0,0)`, marginLeft: '40px' }} variant="contained" onClick={leaveTable}>Leave table</Button>
+                    </div>
+                    : null}
                 <div className="players">
                     <Buy buyCallback={handleBuyin} ref={buyRef} />
                     {playerData.map(player => (
