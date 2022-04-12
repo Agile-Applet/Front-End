@@ -1,6 +1,6 @@
 const axios = require("axios");
 
-const URL = 'https://json.awsproject.link';
+const URL = 'https://container-service-1.1bm12m42tdcru.eu-north-1.cs.amazonlightsail.com/';
 
 /* New axios instance */
 const instance = axios.create({
