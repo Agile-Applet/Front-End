@@ -1,7 +1,7 @@
 import React from "react";
 import io from "socket.io-client";
 
-const URL = process.env.SOCKET_BASE_STRING;
+const URL = 'https://json.awsproject.link/table1';
 
 const socket = io(URL, {
     autoConnect: false,

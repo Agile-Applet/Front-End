@@ -1,6 +1,6 @@
 const axios = require("axios");
 
-const URL = process.env.API_BASE_STRING;
+const URL = 'https://json.awsproject.link';
 
 /* New axios instance */
 const instance = axios.create({
