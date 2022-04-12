@@ -106,7 +106,6 @@ export default function Holdem(props) {
 
         /* General data updates related to the player */
         socket.on("updatePlayer", (data) => {
-            console.log(data);
             console.log("[Socket] Update player data.");;
             setPlayerData(data);
         });
@@ -122,8 +121,21 @@ export default function Holdem(props) {
             console.log("[Socket] Update table data.");
             if (data[0].status === 'Flop') {
                 data[0].cards.splice(3, 2);
+                setTableData({ pot: data[0].pot, cards: data[0].cards });
+            } else if (data[0].status === 'Turn') {
+                data[0].cards.splice(4, 1);
+                setTableData({ pot: data[0].pot, cards: data[0].cards });
+            } else if (data[0].status === 'River') {
+                setTableData({ pot: data[0].pot, cards: data[0].cards });
+            } else {
+                setTableData({ pot: data[0].pot, cards: data[0].cards });
             }
-            setTableData({ pot: data[0].pot, cards: data[0].cards });
+        });
+
+        /* Reset dealer cards */
+        socket.on("resetTableCards", (data) => {
+            console.log("[Socket] Reset table data.");
+            setTableData({ pot: 0.00, cards: [] });
         });
 
         /* User Error Handling and displaying alert */
