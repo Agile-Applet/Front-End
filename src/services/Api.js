@@ -1,6 +1,6 @@
 const axios = require("axios");
 
-const URL = process.env.API_BASE_STRING || 'http://localhost:3001';
+const URL = process.env.API_BASE_STRING;
 
 /* New axios instance */
 const instance = axios.create({
