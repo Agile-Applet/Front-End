@@ -11,7 +11,7 @@ const style = {
     border: '2px solid #000',
     boxShadow: 24,
     p: 4,
-  };
+};
 
 export default function Alert(props) {
 
@@ -28,13 +28,13 @@ export default function Alert(props) {
             onClose={handleClose}
             aria-labelledby="modal-modal-title"
             aria-describedby="modal-modal-description"
-            >
+        >
             <Box sx={style}>
-                <Typography style={{color: 'rgb(255,255,255)'}} id="modal-modal-title" variant="h6" component="h2">
-                Järjestelmä ilmoittaa:
+                <Typography style={{ color: 'rgb(255,255,255)' }} id="modal-modal-title" variant="h6" component="h2">
+                    Järjestelmä ilmoittaa:
                 </Typography>
-                <Typography style={{color: 'rgb(255,255,255)'}} id="modal-modal-description" sx={{ mt: 2 }}>
-                {props.message}
+                <Typography style={{ color: 'rgb(255,255,255)' }} id="modal-modal-description" sx={{ mt: 2 }}>
+                    {props.message}
                 </Typography>
             </Box>
         </Modal>

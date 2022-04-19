@@ -5,9 +5,9 @@ const { persistAtom } = recoilPersist();
 
 export const userState = atom({
     key: 'userState',
-    default : {
+    default: {
         username: "",
-        saldo: 0.0,
+        amount: 0.0,
         isAdmin: false,
         isLogged: false,
         cookie: null,
