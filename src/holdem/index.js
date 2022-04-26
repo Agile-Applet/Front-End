@@ -106,6 +106,7 @@ export default function Holdem(props) {
 
         /* General data updates related to the player */
         socket.on("updatePlayer", (data) => {
+            console.log(data);
             console.log("[Socket] Update player data.");;
             setPlayerData(data);
         });
@@ -180,7 +181,7 @@ export default function Holdem(props) {
                 <div className="players">
                     <Buy buyCallback={handleBuyin} ref={buyRef} />
                     {playerData.map(player => (
-                        <Player key={player.playerId} player={player} user={userData} playerData={playerData} controlBuyin={openBuyin} />
+                        <Player key={player.id} data={player} user={userData} controlBuyin={openBuyin} />
                     ))}
                 </div>
             </div>
