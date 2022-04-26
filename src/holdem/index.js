@@ -144,7 +144,7 @@ export default function Holdem(props) {
             setAlert(true);
         });
 
-    }, [])
+    })
 
     /* Rendering */
     return (
