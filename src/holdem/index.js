@@ -23,6 +23,9 @@ export default function Holdem(props) {
     */
     const [playerData, setPlayerData] = useState([]);
 
+    /* Player's personal stuff like cards */
+    const [hand, setHand] = useState();
+
     /* Status of table cards and player action buttons */
     const [tableStatus, setTableStatus] = useState(false);
 
@@ -111,6 +114,12 @@ export default function Holdem(props) {
             setPlayerData(data);
         });
 
+        socket.on("playerHand", (data) => {
+            console.log(data);
+            console.log("[Socket] Update player hand.");
+            setHand(data);
+        })
+
         /* Starts or stops the round */
         socket.on("syncGame", (data) => {
             console.log("[Socket] Start/stop round.");
@@ -120,23 +129,7 @@ export default function Holdem(props) {
         /* Updates dealer cards */
         socket.on("updateTableCards", (data) => {
             console.log("[Socket] Update table data.");
-            if (data[0].status === 'Flop') {
-                data[0].cards.splice(3, 2);
-                setTableData({ pot: data[0].pot, cards: data[0].cards });
-            } else if (data[0].status === 'Turn') {
-                data[0].cards.splice(4, 1);
-                setTableData({ pot: data[0].pot, cards: data[0].cards });
-            } else if (data[0].status === 'River') {
-                setTableData({ pot: data[0].pot, cards: data[0].cards });
-            } else {
-                setTableData({ pot: data[0].pot, cards: data[0].cards });
-            }
-        });
-
-        /* Reset dealer cards */
-        socket.on("resetTableCards", (data) => {
-            console.log("[Socket] Reset table data.");
-            setTableData({ pot: 0.00, cards: [] });
+            setTableData({ pot: data[0].pot, cards: data[0].cards });
         });
 
         /* User Error Handling and displaying alert */
@@ -145,7 +138,7 @@ export default function Holdem(props) {
             setAlert(true);
         });
 
-    })
+    }, [])
 
     /* Rendering */
     return (
@@ -181,7 +174,7 @@ export default function Holdem(props) {
                 <div className="players">
                     <Buy buyCallback={handleBuyin} ref={buyRef} />
                     {playerData.map(player => (
-                        <Player key={player.id} data={player} user={userData} controlBuyin={openBuyin} />
+                        <Player key={player.id} hand={hand} data={player} user={userData} controlBuyin={openBuyin} />
                     ))}
                 </div>
             </div>
