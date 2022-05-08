@@ -91,7 +91,7 @@ export default function Appbar() {
       username: response.username,
       amount: response.amount,
       isAdmin: response.isAdmin,
-      isLogged: response.isLogged,
+      isLogged: true,
       cookie: response.cookie,
       sessionID: response.sessionID,
     };

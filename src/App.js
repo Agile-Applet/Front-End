@@ -44,7 +44,7 @@ function App() {
                   size={"600px"}
                   name={"Emma"}
                   description={"Astu emman maailmaan!"}
-                  url={"#"}
+                  url={"/tbd"}
                   image={
                     "https://i8.amplience.net/i/veikkaus/emma_tile-image-with-logo?w=480&qlt=80&fmt=auto"
                   }
