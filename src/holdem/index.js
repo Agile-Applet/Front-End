@@ -137,7 +137,7 @@ export default function Holdem(props) {
             setAlertMessage(data.message);
             setAlert(true);
         });
-
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [])
 
     /* Rendering */
