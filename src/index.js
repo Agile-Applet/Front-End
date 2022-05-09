@@ -11,8 +11,9 @@ import { RecoilRoot } from 'recoil';
 
 import Login from './components/Login';
 import Register from './components/Register';
+import RequireAuth from './components/RequireAuth'
+import AlertBox from "./components/Alert";
 import Holdem from './holdem/index';
-
 
 const theme = createTheme({
   palette: {
@@ -38,8 +39,13 @@ ReactDOM.render(
         <RecoilRoot>
           <Routes>
             <Route path="/login" element={<Login />} />
-            <Route path="holdem" element={<Holdem />}></Route>
+            <Route path="/holdem" element={
+              <RequireAuth>
+                <Holdem />
+              </RequireAuth>
+            }></Route>
             <Route path="/register" element={<Register />} />
+            <Route path="/tbd" element={<AlertBox message="Tätä peliä ei ole vielä implementoitu"/>} />
             <Route path="/" element={<App />} />
           </Routes>
         </RecoilRoot>

@@ -1,7 +1,8 @@
 import React from "react";
 import io from "socket.io-client";
 
-const URL = 'https://container-service-1.1bm12m42tdcru.eu-north-1.cs.amazonlightsail.com/table1';
+const URL = 'https://chbackend.1bm12m42tdcru.eu-north-1.cs.amazonlightsail.com/table1';
+//const URL = 'http://localhost:3001/table1';
 
 const socket = io(URL, {
     autoConnect: false,

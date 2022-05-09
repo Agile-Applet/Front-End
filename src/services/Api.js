@@ -1,6 +1,7 @@
 const axios = require("axios");
 
-const URL = 'https://container-service-1.1bm12m42tdcru.eu-north-1.cs.amazonlightsail.com/';
+const URL = 'https://chbackend.1bm12m42tdcru.eu-north-1.cs.amazonlightsail.com/';
+//const URL = 'http://localhost:3001'
 
 /* New axios instance */
 const instance = axios.create({

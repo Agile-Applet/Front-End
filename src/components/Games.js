@@ -13,7 +13,7 @@ export default function Games() {
       cardSize: "big",
       name: "Emma",
       description: "Pelaa emmalla",
-      url: "#",
+      url: "tbd",
       image:
         "https://i8.amplience.net/i/veikkaus/emma_tile-image-with-logo?w=480&qlt=80&fmt=auto",
     },
@@ -21,7 +21,7 @@ export default function Games() {
       cardSize: "big",
       name: "Jaska",
       description: "Pelaa jaskalla",
-      url: "#",
+      url: "tbd",
       image:
         "https://i8.amplience.net/i/veikkaus/kulta-jaska2_tile-image-with-logo?w=480&qlt=80&fmt=auto",
     },
@@ -29,7 +29,7 @@ export default function Games() {
       cardSize: "normal",
       name: "Pikapokeri",
       description: "Nopeatempoinen pokeripeli...",
-      url: "#",
+      url: "tbd",
       image:
         "https://i8.amplience.net/i/veikkaus/pikapokeri_tile-image-with-logo?w=480&qlt=80&fmt=auto",
     },
@@ -37,7 +37,7 @@ export default function Games() {
       cardSize: "normal",
       name: "Talismaani",
       description: "Talismaanin taikaa",
-      url: "#",
+      url: "tbd",
       image:
         "https://i8.amplience.net/i/veikkaus/talismaani_tile-image-with-logo?w=480&qlt=80&fmt=auto",
     },
@@ -45,7 +45,7 @@ export default function Games() {
       cardSize: "normal",
       name: "Tuplapotti",
       description: "Mummojen vakiovalinta",
-      url: "#",
+      url: "tbd",
       image:
         "https://i8.amplience.net/i/veikkaus/tuplapotti_tile-image-with-logo?w=480&qlt=80&fmt=auto",
     },
@@ -53,7 +53,7 @@ export default function Games() {
       cardSize: "normal",
       name: "Luna",
       description: "Otso tais voittaa joskus",
-      url: "#",
+      url: "tbd",
       image:
         "https://i8.amplience.net/i/veikkaus/luna_tile-image-with-logo?w=480&qlt=80&fmt=auto",
     },
@@ -61,7 +61,7 @@ export default function Games() {
       cardSize: "normal",
       name: "NovaX",
       description: "Pelaa...",
-      url: "#",
+      url: "tbd",
       image:
         "https://i8.amplience.net/i/veikkaus/novax_tile-image-with-logo?w=480&qlt=80&fmt=auto",
     },
@@ -69,7 +69,7 @@ export default function Games() {
       cardSize: "normal",
       name: "Saaga",
       description: "Pelaa..",
-      url: "#",
+      url: "tbd",
       image:
         "https://i8.amplience.net/i/veikkaus/saaga_tile-image-with-logo?w=480&qlt=80&fmt=auto",
     },
@@ -77,7 +77,7 @@ export default function Games() {
       cardSize: "normal",
       name: "Hippu",
       description: "Pelaa...",
-      url: "#",
+      url: "tbd",
       image:
         "https://i8.amplience.net/i/veikkaus/hippu_tile-image-with-logo?w=480&qlt=80&fmt=auto",
     },

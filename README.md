@@ -103,7 +103,7 @@ Front-End side of the Casino Platform @ Haaga-Helia Project course 2.
 ## Features
 
 - React.js and Material-UI.
-- Game listing page, Login, register and deposit forms.
+- Game listing page, login, register and deposit forms.
 - Texas Holdem table with socket.io connection.
 
 
@@ -152,8 +152,10 @@ Front-End side of the Casino Platform @ Haaga-Helia Project course 2.
 
 ## Roadmap
 
-- CSS styling.
+- Player chat.
+- Big/Small Blind icons.
 - Texas Holdem table responsiveness.
+- Joining a "leave queue" during a round.
 
 
 ## Environment Variables
@@ -205,7 +207,7 @@ To run tests, run the following command:
 
 ## Screenshots
 
-![App Screenshot](https://via.placeholder.com/468x300?text=App+Screenshot+Here)
+![Holdem](https://i.ibb.co/TLTKZzL/Capture1.png)
  
 
 ## Related

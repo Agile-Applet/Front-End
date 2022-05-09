@@ -23,6 +23,9 @@ export default function Holdem(props) {
     */
     const [playerData, setPlayerData] = useState([]);
 
+    /* Player's personal stuff like cards */
+    const [hand, setHand] = useState();
+
     /* Status of table cards and player action buttons */
     const [tableStatus, setTableStatus] = useState(false);
 
@@ -106,9 +109,16 @@ export default function Holdem(props) {
 
         /* General data updates related to the player */
         socket.on("updatePlayer", (data) => {
+            console.log(data);
             console.log("[Socket] Update player data.");;
             setPlayerData(data);
         });
+
+        socket.on("playerHand", (data) => {
+            console.log(data);
+            console.log("[Socket] Update player hand.");
+            setHand(data);
+        })
 
         /* Starts or stops the round */
         socket.on("syncGame", (data) => {
@@ -119,20 +129,10 @@ export default function Holdem(props) {
         /* Updates dealer cards */
         socket.on("updateTableCards", (data) => {
             console.log("[Socket] Update table data.");
-            if (data[0].status === 'Flop') {
-                data[0].cards.splice(3, 2);
-                setTableData({ pot: data[0].pot, cards: data[0].cards });
-            } else if (data[0].status === 'Turn') {
-                data[0].cards.splice(4, 1);
-                setTableData({ pot: data[0].pot, cards: data[0].cards });
-            } else if (data[0].status === 'River') {
-                setTableData({ pot: data[0].pot, cards: data[0].cards });
-            } else {
-                setTableData({ pot: data[0].pot, cards: data[0].cards });
-            }
+            setTableData({ pot: data[0].pot, cards: data[0].cards });
         });
 
-        /* Reset dealer cards */
+        /* reset table cards in start */
         socket.on("resetTableCards", (data) => {
             console.log("[Socket] Reset table data.");
             setTableData({ pot: 0.00, cards: [] });
@@ -142,9 +142,12 @@ export default function Holdem(props) {
         socket.on("userError", (data) => {
             setAlertMessage(data.message);
             setAlert(true);
+            setTimeout(function() {
+                setAlert(false);
+            }, 6000)
         });
-
-    }, [userData, user])
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, [])
 
     /* Rendering */
     return (
@@ -180,7 +183,7 @@ export default function Holdem(props) {
                 <div className="players">
                     <Buy buyCallback={handleBuyin} ref={buyRef} />
                     {playerData.map(player => (
-                        <Player key={player.playerId} player={player} user={userData} playerData={playerData} controlBuyin={openBuyin} />
+                        <Player key={player.id} hand={hand} data={player} user={userData} controlBuyin={openBuyin} />
                     ))}
                 </div>
             </div>
