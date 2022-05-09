@@ -136,6 +136,9 @@ export default function Holdem(props) {
         socket.on("userError", (data) => {
             setAlertMessage(data.message);
             setAlert(true);
+            setTimeout(function() {
+                setAlert(false);
+            }, 6000)
         });
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [])
