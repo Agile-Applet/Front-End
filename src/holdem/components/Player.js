@@ -13,11 +13,38 @@ export default function Player(props) {
         }
     }
 
+    const getAvatarId = (bool) => {
+        if ( bool ) {
+            return "hasTurn";
+        } else {
+            return "waiting";
+        }
+    }
+
     /* Changes avatar style in case of turn */
 
     const getAvatarClass = (bool) => {
         if ( bool ) {
-            return "avatar-turn";
+            /* 0-5s green,
+               5-10s yellow,
+               10-15s green,
+               15s reset*/
+            let className = "avatar-turn";
+            if ( document.getElementById("hasTurn") ) {
+                setTimeout(function() {
+                    className = "avatar-turn-y";
+                    document.getElementById("hasTurn").className = className;
+                }, 5000)
+                setTimeout(function() {
+                    className = "avatar-turn-r";
+                    document.getElementById("hasTurn").className = className;
+                }, 10000)
+                setTimeout(function() {
+                    className = "avatar-turn";
+                    document.getElementById("hasTurn").className = className;
+                }, 15000)
+            }
+            return className;
         } else {
             return "avatar-normal";
         }
@@ -47,7 +74,7 @@ export default function Player(props) {
     if (props.data.status === 2) {
         return (
             <div key={props.data.id} className={`player-${props.data.id}`}>
-                <div className={getAvatarClass(props.data.hasTurn)}>
+                <div id={getAvatarId(props.data.hasTurn)} className={getAvatarClass(props.data.hasTurn)}>
                     <Avatar sx={{ display: 'block', marginLeft: 'auto', marginRight: 'auto', padding: '6px 12px', width: 120, height: 120 }} src={props.data.player.avatar}></Avatar>
                     <p className="avatar-normal">{props.data.player.name + props.data.player.role}</p>
                     <div className="avatar-money">

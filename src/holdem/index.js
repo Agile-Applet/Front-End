@@ -136,6 +136,9 @@ export default function Holdem(props) {
         socket.on("userError", (data) => {
             setAlertMessage(data.message);
             setAlert(true);
+            setTimeout(function() {
+                setAlert(false);
+            }, 6000)
         });
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [])
@@ -146,7 +149,7 @@ export default function Holdem(props) {
             <div className="poker-table">
                 <img alt="table" className="poker-table" src={'./assets/table.svg'} />
                 {alertMessage.length > 5 && showAlert &&
-                    <AlertBox message={alertMessage} callback={alertCallback} />
+                    <AlertBox message={alertMessage} callback={alertCallback}/>
                 }
                 <div className="table-pot">
                     <p className="table-pot">Pot: € {tableData.pot}</p>
