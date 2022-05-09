@@ -132,6 +132,12 @@ export default function Holdem(props) {
             setTableData({ pot: data[0].pot, cards: data[0].cards });
         });
 
+        /* reset table cards in start */
+        socket.on("resetTableCards", (data) => {
+            console.log("[Socket] Reset table data.");
+            setTableData({ pot: 0.00, cards: [] });
+        });
+
         /* User Error Handling and displaying alert */
         socket.on("userError", (data) => {
             setAlertMessage(data.message);
