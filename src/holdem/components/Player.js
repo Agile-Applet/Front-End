@@ -6,7 +6,7 @@ import "../Holdem.css";
 export default function Player(props) {
 
     const getHandPosition = (seatId) => {
-        if ( seatId <= 3 ) {
+        if (seatId <= 3) {
             return "player-cards-right";
         } else {
             return "player-cards-left";
@@ -16,7 +16,7 @@ export default function Player(props) {
     /* Changes avatar style in case of turn */
 
     const getAvatarClass = (bool) => {
-        if ( bool ) {
+        if (bool) {
             return "avatar-turn";
         } else {
             return "avatar-normal";
@@ -30,17 +30,17 @@ export default function Player(props) {
 
     const GenerateCards = () => {
         console.log(props.hand)
-        if (props.data.player.seatId === props.user.seat){
-            return(props.hand.map((item, key) => {
+        if (props.data.player.seatId === props.user.seat) {
+            return (props.hand.map((item, key) => {
                 return (<Playcard card={item.card} key={key} className="playcard" />)
             }))
-        }else{
-            return(
+        } else {
+            return (
                 <>
                     <Playcard className="playcard" back="true" />
                     <Playcard className="playcard" back="true" />
                 </>
-                )
+            )
         }
     }
     console.log(props.data)
@@ -59,10 +59,10 @@ export default function Player(props) {
                         <p className="avatar-money">Bet: {props.data.player.lastBet}</p>
                     </div>
                 </div>
-                    <div className={getHandPosition(props.data.id)}> 
-                        <GenerateCards />
-                    </div>
-            </div> 
+                <div className={getHandPosition(props.data.id)}>
+                    <GenerateCards />
+                </div>
+            </div>
         )
     } else if (props.data.status === 1) {
         return (
@@ -73,7 +73,7 @@ export default function Player(props) {
                     <div className="avatar-money">
                         <img alt="chips" className="avatar-money" src={(`../assets/chips.svg`)} />
                         <p className="avatar-money">Money: {props.data.player.money}</p><br />
-                        <p className="avatar-money">Waiting</p> 
+                        <p className="avatar-money">Waiting</p>
                     </div>
                 </div>
             </div>

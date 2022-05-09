@@ -22,10 +22,10 @@ export default function AlertBox(props) {
       <Dialog open={open} onClose={handleClose}>
         <DialogTitle>Järjestelmä ilmoittaa</DialogTitle>
         <DialogContent>
-        <Alert severity="error" variant="filled">
-        <AlertTitle>Virhetilanne</AlertTitle>
-        {props.message}
-        </Alert>
+          <Alert severity="error" variant="filled">
+            <AlertTitle>Virhetilanne</AlertTitle>
+            {props.message}
+          </Alert>
         </DialogContent>
         <DialogActions>
           <Button variant="contained" onClick={handleClose}>

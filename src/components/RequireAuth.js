@@ -8,6 +8,6 @@ export default function RequireAuth({ children }) {
     const user = useRecoilState(userState);
 
     const authenticated = user[0].isLogged;
-  
-    return authenticated === true ? children : <Alert message="Et voi pelata holdemia kirjautumatta sisään kasinolle. Ole hyvä ja kirjaudu jatkaaksesi."/>
+
+    return authenticated === true ? children : <Alert message="Et voi pelata holdemia kirjautumatta sisään kasinolle. Ole hyvä ja kirjaudu jatkaaksesi." />
 }
