@@ -6,10 +6,21 @@ import "../Holdem.css";
 export default function Player(props) {
 
     const getHandPosition = (seatId) => {
-        if (seatId <= 3) {
-            return "player-cards-right";
-        } else {
-            return "player-cards-left";
+        switch(seatId) {
+            case 0:
+                return "player-cards-top";
+            case 1:
+                return "player-cards-top";
+            case 2:
+                return "player-cards-left";
+            case 3:
+                return "player-cards-right";
+            case 4:
+                return "player-cards-left";
+            case 5:
+                return "player-cards-right";
+            default:
+                return "player-cards-top";
         }
     }
 

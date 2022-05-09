@@ -78,6 +78,12 @@ div.dealer {
     margin: auto;
 }
 
+div.player-cards-top {
+    width: 200;
+    position: relative;
+    top: -340px;
+}
+
 div.player-cards-left {
     width: 200;
     position: relative;
