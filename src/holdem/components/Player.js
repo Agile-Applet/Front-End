@@ -12,13 +12,13 @@ export default function Player(props) {
             case 1:
                 return "player-cards-top";
             case 2:
-                return "player-cards-left";
+                return "player-cards-right";
             case 3:
                 return "player-cards-right";
             case 4:
                 return "player-cards-left";
             case 5:
-                return "player-cards-right";
+                return "player-cards-left";
             default:
                 return "player-cards-top";
         }
