@@ -143,7 +143,7 @@ export default function Holdem(props) {
     /* Rendering */
     return (
         <div className="main">
-            <div className="poker-table">
+            <div className="poker-table" style={{width:"100%"}}>
                 <img alt="table" className="poker-table" src={'./assets/table.svg'} />
                 {alertMessage.length > 5 && showAlert &&
                     <AlertBox message={alertMessage} callback={alertCallback} />
