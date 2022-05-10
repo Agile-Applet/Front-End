@@ -1,6 +1,12 @@
 const { test, expect } = require('@playwright/test');
 
-/* R_T1 Testitapaus */
+/* R_T1 Testitapaus 
+
+-   R_T1 - Rekisteröityminen oikeilla tiedoilla onnistuu
+-   Kokeillaan rekisteröintiä avaamalla lomake, syöttämällä sopivat oikeat tieedot lomakkeelle ja painetaan rekisteröitymistä
+-   Lopputuloksena rekisteröinti hyväksytään ja käyttäjätunnus syntyy tietokantaan
+
+*/
 
 test('R_T1 - Rekisteröityminen oikeilla tiedoilla onnistuu', async ({ page }) => {
 

@@ -1,6 +1,12 @@
 const { test, expect } = require('@playwright/test');
 
-/* R_T2 Testitapaus */
+/* R_T2 Testitapaus
+
+-   R_T2 -  Rekisteröityminen puutteellisella salasanalla ei onnistu
+-   Kokeillaan rekisteröintiä avaamalla lomake, syöttämällä puutteellinen salasana lomakkeelle ja painetaan rekisteröitymistä
+-   Lopputuloksena rekisteröinti hylätään ja käyttäjätunnustusta ei rekisteröidä
+
+*/
 
 test('R_T2 - Rekisteröityminen puutteellisella salasanalla ei onnistu', async ({ page }) => {
 

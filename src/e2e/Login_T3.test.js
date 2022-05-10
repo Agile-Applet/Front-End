@@ -1,6 +1,12 @@
 const { test, expect } = require('@playwright/test');
 
-/* K_T3 Testitapaus */
+/* K_T3 Testitapaus
+
+-   K_T3 - Kirjautuminen virheellisellä käyttäjätunnuksella ei onnistu
+-   Kokeillaan kirjautumista avamaalla kirjautumislomake ja syöttämällä väärä käyttäjätunnus
+-   Lopputuloksena kirjautuminen hylätään
+
+*/
 
 test('K_T3 - Kirjautuminen virheellisellä käyttäjätunnuksella ei onnistu', async ({ page }) => {
     await page.goto('http://localhost:3000');
