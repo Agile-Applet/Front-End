@@ -21,5 +21,9 @@ test('R_T3 - Rekisteröityminen palveluun varatulla tunnuksella ei onnistu', asy
     // eslint-disable-next-line jest/valid-expect
     const locator = page.locator('.MuiAlert-filledError');
     await expect(locator).toBeTruthy();
+
+    const textLocator = page.locator('[data-test-id=alertmessage]'); // Tsekataan vielä tarkempi tieto statuksella, jonka järjestelmä asettaa attribuuttiin
+    await expect(textLocator).toHaveAttribute('status', 'error');
+    await expect(textLocator).toHaveText("Käyttäjätunnus on jo varattu"); // Validoidaan alertin teksti myös
   
 });

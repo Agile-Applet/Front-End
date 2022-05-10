@@ -4,7 +4,7 @@ const { test, expect } = require('@playwright/test');
 
 test('R_T1 - Rekisteröityminen oikeilla tiedoilla onnistuu', async ({ page }) => {
 
-    let rnd = Math.floor(9999);
+    let rnd = Math.floor(Math.random() * 9999999999);
     let username = "playwright" + rnd;
     let password = "abc" + rnd;
 
@@ -25,5 +25,9 @@ test('R_T1 - Rekisteröityminen oikeilla tiedoilla onnistuu', async ({ page }) =
     // eslint-disable-next-line jest/valid-expect
     const locator = page.locator('.MuiAlert-filledSuccess');
     await expect(locator).toBeTruthy();
+
+    const textLocator = page.locator('[data-test-id=alertmessage]'); // Tsekataan vielä tarkempi tieto statuksella, jonka järjestelmä asettaa attribuuttiin
+    await expect(textLocator).toHaveAttribute('status', 'success');
+    await expect(textLocator).toHaveText("Olet rekisteröitynyt onnistuneesti"); // Validoidaan alertin teksti myös
   
 });

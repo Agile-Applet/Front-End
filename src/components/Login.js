@@ -39,7 +39,7 @@ export default forwardRef((props, ref) => {
     const response = await Api.postData("/login", user);
     console.log(response);
     if (response.status === 200) {
-      showAlert("success", "Olet kirjautunut sisään onnistuneesti", 1000, true);
+      showAlert("success", "Olet kirjautunut sisään onnistuneesti", 0);
       loggedIn(response.data);
     } else if (response.status === 401) {
       showAlert("error", "Käyttäjätunnus ja salasana ei täsmää", 0);
@@ -70,8 +70,8 @@ export default forwardRef((props, ref) => {
     <div>
       <Dialog open={open} onClose={handleClose}>
         {alert.message.length > 0 && (
-          <Alert variant="filled" severity={alert.severity}>
-            {alert.message}
+          <Alert id="alertBox" variant="filled" severity={alert.severity}>
+            <p status={alert.severity} data-test-id="alertmessage">{alert.message}</p>
           </Alert>
         )}
         <DialogTitle>Kirjaudu sisään</DialogTitle>
@@ -103,7 +103,7 @@ export default forwardRef((props, ref) => {
             Sulje
           </Button>
           <Button variant="contained" onClick={handleLogin}>
-            Kirjaudu
+            Kirjaudu tunnukselle
           </Button>
         </DialogActions>
       </Dialog>

@@ -97,7 +97,7 @@ export default function Appbar() {
     };
     setUser(usr);
     localStorage.setItem("user", JSON.stringify(usr));
-    window.location.reload();
+    //window.location.reload();
   };
 
   const toggleDrawer = (open) => (event) => {

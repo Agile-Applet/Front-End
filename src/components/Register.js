@@ -39,7 +39,7 @@ export default forwardRef((props, ref) => {
     const response = await Api.postData("/register", user);
     console.log(response);
     if (response.status === 201) {
-      showAlert("success", "Olet rekisteröitynyt onnistuneesti", 1000, true);
+      showAlert("success", "Olet rekisteröitynyt onnistuneesti", 0);
     } else if (response.nameIsTaken || response.status === 409) {
       showAlert("error", "Käyttäjätunnus on jo varattu", 0);
     } else {
@@ -69,8 +69,8 @@ export default forwardRef((props, ref) => {
     <div>
       <Dialog open={open} onClose={handleClose}>
         {alert.message.length > 0 && (
-          <Alert variant="filled" severity={alert.severity}>
-            {alert.message}
+          <Alert id="alertBox" variant="filled" severity={alert.severity}>
+          <p status={alert.severity} data-test-id="alertmessage">{alert.message}</p>
           </Alert>
         )}
         <DialogTitle>Luo uusi käyttäjä</DialogTitle>

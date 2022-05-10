@@ -13,10 +13,14 @@ test('K_T3 - Kirjautuminen virheellisellä käyttäjätunnuksella ei onnistu', a
 
     await page.fill('text=Salasana', 'abc1');
 
-    await page.click('text=Kirjaudu');
+    await page.click('text=Kirjaudu tunnukselle');
 
     // eslint-disable-next-line jest/valid-expect
     const locator = page.locator('.MuiAlert-filledError');
     await expect(locator).toBeTruthy();
+
+    const textLocator = page.locator('[data-test-id=alertmessage]'); // Tsekataan vielä tarkempi tieto statuksella, jonka järjestelmä asettaa attribuuttiin
+    await expect(textLocator).toHaveAttribute('status', 'error');
+    await expect(textLocator).toHaveText("Käyttäjätunnus ja salasana ei täsmää"); // Validoidaan alertin teksti myös
   
 });
