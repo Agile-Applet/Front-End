@@ -4,6 +4,7 @@ const { test, expect } = require('@playwright/test');
 
 -   R_T2 -  Rekisteröityminen puutteellisella salasanalla ei onnistu
 -   Kokeillaan rekisteröintiä avaamalla lomake, syöttämällä puutteellinen salasana lomakkeelle ja painetaan rekisteröitymistä
+-   Hyväksymisehdot: status attribuutti=(success), järjestelmän antaman tekstin validointi
 -   Lopputuloksena rekisteröinti hylätään ja käyttäjätunnustusta ei rekisteröidä
 
 */

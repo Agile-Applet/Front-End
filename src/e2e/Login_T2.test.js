@@ -4,6 +4,7 @@ const { test, expect } = require('@playwright/test');
 
 -   K_T2 - K_T2 - Kirjautuminen virheellisellä salasanalla ei onnistu
 -   Kokeillaan kirjautumista avamaalla kirjautumislomake ja syöttämällä toimivan käyttäjätunnuksen tiedot lomakkeelle, mutta salasana laitetaan väärin.
+-   Hyväksymisehdot: status attribuutti=(error), järjestelmän antaman tekstin validointi
 -   Lopputuloksena kirjautuminen hylätään
 
 */

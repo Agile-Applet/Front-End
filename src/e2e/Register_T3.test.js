@@ -4,6 +4,7 @@ const { test, expect } = require('@playwright/test');
 
 -   R_T3 - Rekisteröityminen puutteellisella salasanalla ei onnistu
 -   Kokeillaan rekisteröintiä avaamalla lomake, syötetään olemassa olevan tunnuksen tiedot ja painetaan rekisteröitymistä
+-   Hyväksymisehdot: status attribuutti=(error), järjestelmän antaman tekstin validointi
 -   Lopputuloksena rekisteröinti hylätään ja käyttäjätunnustusta ei rekisteröidä (koska tunnus varattu)
 
 */

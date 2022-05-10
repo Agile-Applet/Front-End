@@ -4,6 +4,7 @@ const { test, expect } = require('@playwright/test');
 
 -   K_T3 - Kirjautuminen virheellisellä käyttäjätunnuksella ei onnistu
 -   Kokeillaan kirjautumista avamaalla kirjautumislomake ja syöttämällä väärä käyttäjätunnus
+-   Hyväksymisehdot: status attribuutti=(error), järjestelmän antaman tekstin validointi
 -   Lopputuloksena kirjautuminen hylätään
 
 */

@@ -4,6 +4,7 @@ const { test, expect } = require('@playwright/test');
 
 -   R_T4 - Rekisteröityminen palveluun ilman määritettyä tunnusta ei onnistu
 -   Kokeillaan rekisteröintiä avaamalla lomake, ei syötetä tunnusta ja painetaan rekisteröitymistä
+-   Hyväksymisehdot: status attribuutti=(error), järjestelmän antaman tekstin validointi
 -   Lopputuloksena rekisteröinti hylätään ja käyttäjätunnustusta ei rekisteröidä (koska lomake on puutteellisesti täytetty)
 
 */
