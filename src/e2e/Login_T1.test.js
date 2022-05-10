@@ -21,7 +21,7 @@ test('K_T1 - Kirjautuminen oikeilla tiedoilla onnistuu', async ({ page }) => {
  
     await page.fill('text=Käyttäjänimi', 'Playwright'); // Täytetään käyttäjänimi kenttään 'Playwright' lomakkeella
 
-    await page.fill('text=Salasana', 'abc123'); // Täytetään salasana kenttään 'testi' lomakkeellla
+    await page.fill('text=Salasana', 'testi'); // Täytetään salasana kenttään 'testi' lomakkeellla
 
     await page.locator('text=Kirjaudu tunnukselle').click(); // Klikataan kirjautumista lomakkeella
 
